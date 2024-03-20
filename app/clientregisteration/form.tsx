@@ -1,8 +1,6 @@
 'use client'
 import {FormEvent, useState} from "react";
 import {useRouter} from "next/navigation";
-import {Simulate} from "react-dom/test-utils";
-import reset = Simulate.reset;
 import Link from "next/link";
 
 export default function Form(){
