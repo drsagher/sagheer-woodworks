@@ -1,4 +1,4 @@
-import Form from "@/app/clientregisteration/form";
+import Form from "@/app/admin/clientregisteration/form";
 import {getServerSession} from "next-auth";
 import {redirect} from "next/navigation";
 
