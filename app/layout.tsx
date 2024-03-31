@@ -6,6 +6,7 @@ import Logout from "@/app/logout";
 import Link from "next/link";
 import React from "react";
 import HeadersDiv from "@/app/components/headers-div";
+import FooterPage from "@/app/components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ export default async function RootLayout({
       <body className={inter.className}>
       <HeadersDiv />
         {children}
+      <FooterPage/>
       </body>
     </html>
   );

@@ -32,6 +32,7 @@ export default function Form(){
                 setMessage("Client Registered Successfully!");
                 router.push('/admin');
                 router.refresh();
+                alert("Client Registered Successfully!");
             }
             else{
                 setMessage("Server Error!");
