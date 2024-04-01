@@ -5,9 +5,9 @@ export default function ChangePassword() {
     const [users, setUsers] = useState([]);
     const [id, setId] = useState(28);
 
-    let userList = `/api/auth/getusers`;
+    let userList:string = '/api/auth/getusers';
 
-    const fetchUsersListData = useCallback(async (userList) => {
+    const fetchUsersListData = useCallback(async (userList:string) => {
         try {
             const response = await fetch(userList);
             const data = await response.json();

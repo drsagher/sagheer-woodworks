@@ -30,8 +30,6 @@ export default function Form(){
                    name="email" type="email" placeholder="Email"/>
             <input className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"
                    name="password" type="password" placeholder="Password"/>
-            {/*<input className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"*/}
-            {/*       name="usertype" type="text" placeholder="User Type"/>*/}
             <select name="usertype" className="border-2 border-rose-600 h-10 rounded-md">
                 <option value="DEO">DEO</option>
                 <option value="Admin">Admin</option>

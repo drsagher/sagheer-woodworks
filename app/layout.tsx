@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import {getServerSession} from "next-auth";
-import Logout from "@/app/logout";
-import Link from "next/link";
 import React from "react";
 import HeadersDiv from "@/app/components/headers-div";
 import FooterPage from "@/app/components/footer";

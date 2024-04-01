@@ -2,8 +2,7 @@
 import Link from "next/link";
 import {FormEvent, useCallback, useEffect, useState} from "react";
 export default function Form() {
-    // fetch(`/api/auth/viewclient`)
-    //fetch(`/api/auth/client/getclient?id=${id}`)
+
     const [client, setClient] = useState([]);
     const [clientList, setClientList] = useState([]);
     const [id, setId] = useState(28);

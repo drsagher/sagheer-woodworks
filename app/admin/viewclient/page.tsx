@@ -1,7 +1,6 @@
 'use client'
 import {useEffect, useState} from "react";
 import React from "react";
-import Link from "next/link";
 export default function Page(){
     const [listData, setListData] = useState([]);
     useEffect(() => {
