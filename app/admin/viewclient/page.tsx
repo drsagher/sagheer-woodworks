@@ -4,7 +4,7 @@ import React from "react";
 export default function Page(){
     const [listData, setListData] = useState([]);
     useEffect(() => {
-        fetch('/api/auth/viewclient')
+        fetch('/api/auth/viewclient',{next:{revalidate:10}})
             .then((res) => res.json())
             .then((listData) => {
                 setListData(listData)

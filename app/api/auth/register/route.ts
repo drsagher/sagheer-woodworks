@@ -7,6 +7,7 @@ try{
     console.log({email, password, usertype});
     const hashedPassword = await hash(password,10);
     const response = await sql`insert into users (email, password, usertype) VALUES (${email},${hashedPassword},${usertype})`;
+
 }catch(e){
     console.log({e});
 }

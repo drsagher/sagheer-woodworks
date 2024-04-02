@@ -48,7 +48,7 @@ const calcBill = (muns:number, kg:number, price:number) => {
         })
         console.log(response);
         if(response.ok){
-            setInfo("Entery Saved!");
+            setInfo("Entry Saved!");
         }else{  setInfo("Server Error!");}
     };
     const eventHandler = (e:React.ChangeEvent<any>) => {
