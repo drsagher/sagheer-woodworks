@@ -1,7 +1,7 @@
 'use client'
 import {useEffect, useState} from "react";
 import React from "react";
-export default function Page(res:Response){
+export default function Page(){
     const [listData, setListData] = useState([])
     useEffect(() => {
         fetch('/api/auth/viewdata',{next:{revalidate:10}})
