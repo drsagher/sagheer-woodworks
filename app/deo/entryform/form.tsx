@@ -1,16 +1,8 @@
 'use client'
-import {FormEvent, useCallback} from "react";
-import {useRouter} from "next/navigation";
+import React, {FormEvent, useCallback} from "react";
 import Link from "next/link";
-import { sql } from '@vercel/postgres';
 import { useEffect, useState } from 'react'
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select"
+
 export default function Form(){
     const [muns, setMuns] = useState('');
     const [kg, setKg] = useState('');
@@ -19,7 +11,7 @@ export default function Form(){
     const [total, setTotal] = useState('');
     const [client, setClient] = useState('');
     const [clientId, setClientId] = useState('');
-    const [message, setMessage] = useState('Hello World!');
+    const [message, setMessage] = useState('SMS Alert will be soon.');
 const calcBill = (muns:number, kg:number, price:number) => {
     let result = 0;
     result = (muns * 40) + kg;
@@ -59,9 +51,13 @@ const calcBill = (muns:number, kg:number, price:number) => {
             setInfo("Entery Saved!");
         }else{  setInfo("Server Error!");}
     };
-    const session_id="";
-    const msg_id="";
-    const msgUrl =`https://telenorcsms.com.pk:27677/corporate_sms2/api/querymsg.jsp?session_id=${session_id}&msg_id=${msg_id}`
+    const eventHandler = (e:React.ChangeEvent<any>) => {
+        setClientId(e.target.value);
+    }
+    const eventHandlerId = (e:React.ChangeEvent<any>) => {
+        setClient(e.target.value);
+    }
+
     return(
         <div>
         <form onSubmit={handleSubmit} className="flex flex-col gap-2 mx-auto max-w-md mt-10">
@@ -73,26 +69,22 @@ const calcBill = (muns:number, kg:number, price:number) => {
                 </div>
                 <div className="flex flex-col gap-2  w-2/3">
                     <select className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"
-                            name="clientid" onClick={(e) => {
-                        setClientId(e.target.value);
-                    }}>
+                            name="clientid" onClick={eventHandler}>
                         {
                             listData ?
                                 listData.map((client) => {
-                                    return <option key={client.name}
-                                                   value={client.id}>{client.id} {client.name}</option>
+                                    return <option key={client["name"]}
+                                                   value={client["id"]}>{client["id"]} {client["name"]}</option>
                                 }) : null
                         }
                     </select>
                     <select className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"
-                            name="client" onClick={(e) => {
-                        setClient(e.target.value);
-                    }}>
+                            name="client" onClick={eventHandlerId}>
                         {
                             listData ?
                                 listData.map((client) => {
-                                    return <option key={client.id}
-                                                   value={client.name}>{client.id} {client.name}</option>
+                                    return <option key={client["id"]}
+                                                   value={client["name"]}>{client["id"]} {client["name"]}</option>
                                 }) : null
                         }
                     </select>
@@ -115,6 +107,8 @@ const calcBill = (muns:number, kg:number, price:number) => {
                    name="bill" type="text" placeholder="Total Bill" value={total}/>
             <input className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"
                    name="amount" type="text" placeholder="Cash Received"/>
+            <input className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"
+                   name="message" type="text" placeholder="Cash Received" value={message}/>
             <label>{message}</label>
             <div className="flex gap-2">
                 <button type="submit" className="bg-amber-300 hover:bg-amber-400 p-2 w-24 rounded-3xl">Save</button>

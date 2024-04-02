@@ -1,9 +1,9 @@
 'use client'
-import {FormEvent, useCallback, useEffect, useState} from "react";
+import React, {FormEvent, useCallback, useEffect, useState} from "react";
 import Link from "next/link";
 export default function ChangePassword() {
     const [users, setUsers] = useState([]);
-    const [id, setId] = useState(28);
+    const [id, setId] = useState(0);
 
     let userList:string = '/api/auth/getusers';
 
@@ -38,15 +38,19 @@ export default function ChangePassword() {
             alert("Server Error!");
         }
     }
+const eventHandler = (e:React.ChangeEvent<any>) => {
+      setId(e.target.value);
+}
 return(
     <form className="flex flex-col gap-2 mx-auto max-w-md mt-10" onSubmit={handleSubmit}>
+
         <select className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"
-                onClick={(e) => setId(e.target.value)}>
+                onClick={eventHandler}>
             {
-                users ?
-                    users.map((user) => {
-                        return <option key={user.email} value={user.id}>{user.id} {user.email}</option>
-                    }) : null
+                users?
+                    users.map((user) =>
+                        <option key={user["email"]} value={user["id"]}>{user["id"]} {user["email"]}</option>
+                    ):null
             }
         </select>
         <input className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"

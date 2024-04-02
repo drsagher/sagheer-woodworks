@@ -2,7 +2,6 @@
 import {FormEvent, useState} from "react";
 import {signIn} from "next-auth/react";
 import {useRouter} from "next/navigation";
-import {router} from "next/client";
 export default function LoginForm(){
     const [message, setMessage] = useState("");
     const router = useRouter();

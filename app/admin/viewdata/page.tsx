@@ -35,15 +35,15 @@ export default function Page(){
             {
                 listData && listData.map((item, index) => (
                     <tr key={index} className="odd:bg-gray-100 odd:text-blue-700 text-center even:text-gray-700 hover:bg-gray-200">
-                        <td className="border border-slate-300 p-2 ">{item.id}</td>
-                        <td className="border border-slate-300 p-2 ">{item.client}</td>
-                        <td className="border border-slate-300 p-2 ">{item.date}</td>
-                        <td className="border border-slate-300 p-2 ">{item.desription}</td>
-                        <td className="border border-slate-300 p-2 ">{item.muns}</td>
-                        <td className="border border-slate-300 p-2 ">{item.kg}</td>
-                        <td className="border border-slate-300 p-2 ">{item.price}</td>
-                        <td className="border border-slate-300 p-2 ">{item.bill}</td>
-                        <td className="border border-slate-300 p-2 ">{item.amount}</td>
+                        <td className="border border-slate-300 p-2 ">{item["id"]}</td>
+                        <td className="border border-slate-300 p-2 ">{item["client"]}</td>
+                        <td className="border border-slate-300 p-2 ">{item["date"]}</td>
+                        <td className="border border-slate-300 p-2 ">{item["desription"]}</td>
+                        <td className="border border-slate-300 p-2 ">{item["muns"]}</td>
+                        <td className="border border-slate-300 p-2 ">{item["kg"]}</td>
+                        <td className="border border-slate-300 p-2 ">{item["price"]}</td>
+                        <td className="border border-slate-300 p-2 ">{item["bill"]}</td>
+                        <td className="border border-slate-300 p-2 ">{item["amount"]}</td>
                     </tr>
                 ))
             }

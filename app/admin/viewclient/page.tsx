@@ -27,15 +27,13 @@ export default function Page(){
             </thead>
             <tbody>
             {
-                listData && listData.map((item, index) => (
-
-                    <tr key={index} className="odd:bg-gray-100 odd:text-blue-700 text-center even:text-gray-700 hover:bg-gray-200">
-                        <td className="border border-slate-300 p-2 ">{item.id}</td>
-                        <td className="border border-slate-300 p-2 ">{item.name} </td>
-                        <td className="border border-slate-300 p-2 ">{item.shop}</td>
-                        <td className="border border-slate-300 p-2 ">{item.mobile}</td>
+                listData && listData.map(({id, mobile, name, shop}) => (
+                    <tr key={id} className="odd:bg-gray-100 odd:text-blue-700 text-center even:text-gray-700 hover:bg-gray-200">
+                        <td className="border border-slate-300 p-2 ">{id}</td>
+                        <td className="border border-slate-300 p-2 ">{name} </td>
+                        <td className="border border-slate-300 p-2 ">{shop}</td>
+                        <td className="border border-slate-300 p-2 ">{mobile}</td>
                     </tr>
-
                 ))
             }
             </tbody>
