@@ -111,7 +111,6 @@ const calcBill = (muns:number, kg:number, price:number) => {
                    name="amount" type="text" placeholder="Cash Received"/>
             <input className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"
                    name="message" type="text" placeholder="Cash Received" value={message}/>
-            <label>{message}</label>
             <div className="flex gap-2">
                 <button type="submit" className="bg-amber-300 hover:bg-amber-400 p-2 w-24 rounded-3xl">Save</button>
                 <Link href="/deo" className="bg-amber-400 hover:bg-amber-500 p-2 w-16 rounded-3xl">Back</Link>
