@@ -114,9 +114,7 @@ const calcBill = (muns:number, kg:number, price:number) => {
             <label>{message}</label>
             <div className="flex gap-2">
                 <button type="submit" className="bg-amber-300 hover:bg-amber-400 p-2 w-24 rounded-3xl">Save</button>
-                <Link href="/admin" className="bg-amber-400 hover:bg-amber-500 p-2 w-16 rounded-3xl">Back</Link>
-                <button type="submit" className="bg-amber-300 hover:bg-amber-400 p-2 w-24 rounded-3xl">Send SMS</button>
-                {<span className="font-bold text-amber-700"> {info}</span>}
+                <Link href="/deo" className="bg-amber-400 hover:bg-amber-500 p-2 w-16 rounded-3xl">Back</Link>
             </div>
         </form>
         </div>
