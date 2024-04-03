@@ -94,7 +94,7 @@ const calcBill = (muns:number, kg:number, price:number) => {
             </div>
 
             <input className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"
-                   name="date" type="text" placeholder="dd-mm-yyyy"/>
+                   name="date" type="date" placeholder="dd-mm-yyyy"/>
             <input className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"
                    name="desription" type="text" placeholder="desrciption"/>
             <input onChange={(e) => setMuns(e.target.value)}
@@ -104,7 +104,7 @@ const calcBill = (muns:number, kg:number, price:number) => {
                    className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"
                    name="kg" type="text" placeholder="Kilograms ..."/>
             <input onChange={(e)=>setPrice(e.target.value)} className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"
-                   name="price" type="text" placeholder="Price per Kilogram ..."/>
+                   name="price" type="text" placeholder="Price/Mun ..."/>
             <input onClick={()=>{ const b = calcBill(parseInt(muns),parseInt(kg),parseInt(price)); setTotal(b.toString())} } className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"
                    name="bill" type="text" placeholder="Total Bill" value={total}/>
             <input className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"
