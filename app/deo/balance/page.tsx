@@ -5,7 +5,7 @@ export default function Balance() {
     const [id, setId] = useState(8);
     const [balance, setBalance] = useState([]);
     useEffect(() => {
-        fetch(`/api/auth/viewclient`)
+        fetch(`/api/auth/viewclient`,{next:{revalidate:1}, method: 'PUT'})
             .then((res) => res.json())
             .then((listData) => {
                 // @ts-ignore

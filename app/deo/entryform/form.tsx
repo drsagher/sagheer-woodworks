@@ -20,7 +20,7 @@ const calcBill = (muns:number, kg:number, price:number) => {
 }
  const [listData, setListData] = useState([])
     useEffect(() => {
-        fetch('/api/auth/viewclient')
+        fetch('/api/auth/viewclient',{next:{revalidate:1}, method: 'PUT'})
             .then((res) => res.json())
             .then((listData) => {
                 setListData(listData)

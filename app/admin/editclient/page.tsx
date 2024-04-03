@@ -15,7 +15,7 @@ export default function Form() {
 
     const fetchListData = useCallback(async (url:string) => {
         try {
-            const response = await fetch(url);
+            const response = await fetch(url,{next:{revalidate:1}, method: 'PUT'});
             const data = await response.json();
             // console.log(data);
             setClientList(data);

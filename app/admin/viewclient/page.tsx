@@ -1,15 +1,18 @@
 'use client'
 import {useEffect, useState} from "react";
 import React from "react";
-export default function Page(){
+import { revalidatePath } from 'next/cache'
+
+export default  function Page(){
     const [listData, setListData] = useState([]);
     useEffect(() => {
-        fetch('/api/auth/viewclient',{next:{revalidate:10}})
+        fetch('/api/auth/viewclient',{next:{revalidate:1}, method: 'PUT'})
             .then((res) => res.json())
             .then((listData) => {
                 setListData(listData)
             })
     }, []);
+
     return(
     <div className="flex min-h-screen flex-col items-center justify-center bg-gray-100  ">
 
