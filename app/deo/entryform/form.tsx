@@ -14,7 +14,9 @@ export default function Form(){
     const [message, setMessage] = useState('SMS Alert will be soon.');
 const calcBill = (muns:number, kg:number, price:number) => {
     let result = 0;
-    result = (muns * 40) + kg;
+    let weight = kg /40;
+    result = muns + weight;
+    // result = (muns * 40) + kg;
     result *= price;
     return result;
 }
