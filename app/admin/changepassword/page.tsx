@@ -42,15 +42,15 @@ const eventHandler = (e:React.ChangeEvent<any>) => {
       setId(e.target.value);
 }
 return(
-    <form className="flex flex-col gap-2 mx-auto max-w-md mt-10" onSubmit={handleSubmit}>
-
+    <form className="flex flex-col gap-2 mx-auto max-w-md mt-10 py-4" onSubmit={handleSubmit}>
+        <label className="text-center font-bold bg-amber-200 rounded-md p-2 text-amber-800">Change Password</label>
         <select className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"
                 onClick={eventHandler}>
             {
-                users?
+                users ?
                     users.map((user) =>
                         <option key={user["email"]} value={user["id"]}>{user["id"]} {user["email"]}</option>
-                    ):null
+                    ) : null
             }
         </select>
         <input className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"

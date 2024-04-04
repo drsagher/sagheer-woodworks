@@ -23,7 +23,7 @@ export default function Form(){
         }else{  setMessage("Server Error!");}
     };
     return(
-        <form onSubmit={handleSubmit} className="flex flex-col gap-2 mx-auto max-w-md mt-10">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-2 mx-auto max-w-md py-4">
             <label className="text-center font-bold bg-amber-200 rounded-md p-2 text-amber-800">Registration
                 Form</label>
             <input className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"

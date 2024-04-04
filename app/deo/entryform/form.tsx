@@ -67,7 +67,7 @@ const calcBill = (muns:number, kg:number, price:number) => {
     }
     return(
         <div>
-        <form  onSubmit={handleSubmit} className="flex flex-col gap-2 mx-auto max-w-md mt-10">
+        <form  onSubmit={handleSubmit} className="flex flex-col gap-2 mx-auto max-w-md py-4">
             <label className="text-center font-bold bg-amber-200 rounded-md p-2 text-amber-800">Entry Form</label>
             <div className="flex gap-2 border-2 border-gray-200 p-2">
                 <div className="flex flex-col gap-2 justify-center w-1/3">
@@ -75,7 +75,7 @@ const calcBill = (muns:number, kg:number, price:number) => {
                     <label className="font-bold text-md">Client Name:</label>
                 </div>
                 <div className="flex flex-col gap-2  w-2/3">
-                    <select className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"
+                    <select className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400"
                             name="clientid" onClick={eventHandler}>
                         {
                             listData ?
@@ -85,7 +85,7 @@ const calcBill = (muns:number, kg:number, price:number) => {
                                 }) : null
                         }
                     </select>
-                    <select className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"
+                    <select className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400"
                             name="client" onClick={eventHandlerId}>
                         {
                             listData ?
@@ -98,27 +98,26 @@ const calcBill = (muns:number, kg:number, price:number) => {
                 </div>
             </div>
 
-            <input className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"
-                   name="date" type="date" placeholder="dd-mm-yyyy"/>
-            <input className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"
-                   name="desription" type="text" placeholder="desrciption"/>
+            <input className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400"
+                   name="date" type="date" placeholder="dd-mm-yyyy" />
+            <input className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400"
+                   name="desription" type="text" placeholder="desrciption" />
             <input onChange={(e) => setMuns(e.target.value)}
-                   className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"
+                   className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400"
                    name="muns" type="text" placeholder="Muns ..."/>
             <input onChange={(e) => setKg(e.target.value)}
-                   className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"
+                   className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400"
                    name="kg" type="text" placeholder="Kilograms ..."/>
-            <input onChange={(e)=>setPrice(e.target.value)} className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"
+            <input onChange={(e)=>setPrice(e.target.value)} className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400"
                    name="price" type="text" placeholder="Price/Mun ..."/>
-            <input onClick={()=>{ const b = calcBill(parseInt(muns),parseInt(kg),parseInt(price)); setTotal(b.toString())} } className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"
+            <input onClick={()=>{ const b = calcBill(parseInt(muns),parseInt(kg),parseInt(price)); setTotal(b.toString())} } className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400"
                    name="bill" type="text" placeholder="Total Bill" value={total}/>
-            <input className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"
+            <input className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400"
                    name="amount" type="text" placeholder="Cash Received"/>
-            <input className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"
-                   name="message" type="text" placeholder="Cash Received" value={message}/>
+            <input className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400"
+                   name="message" type="text" placeholder="Cash Received" value={message} hidden={true}/>
             <div className="flex gap-2">
                 <button type="submit" className="bg-amber-300 hover:bg-amber-400 p-2 w-24 rounded-3xl">Save</button>
-                <Link href="/deo" className="bg-amber-400 hover:bg-amber-500 p-2 w-16 rounded-3xl">Back</Link>
             </div>
         </form>
         </div>
