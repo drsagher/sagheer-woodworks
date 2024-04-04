@@ -2,8 +2,11 @@
 import React, {FormEvent, useCallback} from "react";
 import Link from "next/link";
 import { useEffect, useState } from 'react'
+import { useRef } from 'react'
+import {useRouter} from "next/navigation";
 
 export default function Form(){
+    const router = useRouter();
     const [muns, setMuns] = useState('');
     const [kg, setKg] = useState('');
     const [price, setPrice] = useState('');
@@ -11,7 +14,7 @@ export default function Form(){
     const [total, setTotal] = useState('');
     const [client, setClient] = useState('');
     const [clientId, setClientId] = useState('');
-    const [message, setMessage] = useState('SMS Alert will be soon.');
+    const [message, setMessage] = useState('SMS Alert coming soon.');
 const calcBill = (muns:number, kg:number, price:number) => {
     let result = 0;
     let weight = kg /40;
@@ -50,7 +53,10 @@ const calcBill = (muns:number, kg:number, price:number) => {
         })
         console.log(response);
         if(response.ok){
-            setInfo("Entry Saved!");
+            // setInfo("Entry Saved!");
+            alert('Entry Saved Successfully');
+            router.push('/deo');
+            router.refresh();
         }else{  setInfo("Server Error!");}
     };
     const eventHandler = (e:React.ChangeEvent<any>) => {
@@ -59,10 +65,9 @@ const calcBill = (muns:number, kg:number, price:number) => {
     const eventHandlerId = (e:React.ChangeEvent<any>) => {
         setClient(e.target.value);
     }
-
     return(
         <div>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-2 mx-auto max-w-md mt-10">
+        <form  onSubmit={handleSubmit} className="flex flex-col gap-2 mx-auto max-w-md mt-10">
             <label className="text-center font-bold bg-amber-200 rounded-md p-2 text-amber-800">Entry Form</label>
             <div className="flex gap-2 border-2 border-gray-200 p-2">
                 <div className="flex flex-col gap-2 justify-center w-1/3">
