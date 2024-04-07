@@ -32,6 +32,8 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
                             User</Link>
                         <Link className="text-md w-full h-10 p-2 hover:bg-amber-400 text-white"
                               href="/admin/changepassword">Change Password</Link>
+                        <Link className="text-md w-full h-10 p-2 hover:bg-amber-400 text-white"
+                              href="/admin/delrecord">Delete Record</Link>
                     </nav>
                 )}
             </div >
