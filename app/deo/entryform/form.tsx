@@ -115,25 +115,24 @@ export default function Form(){
                 </div>
             </div>
 
-            <input className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400"
-                   name="date" type="date" placeholder="dd-mm-yyyy" />
-            <input className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400"
-                   name="desription" type="text" placeholder="desrciption" />
+            <input className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
+                   name="date" type="date" placeholder="dd-mm-yyyy" required={true}/>
+            <input className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
+                   name="desription" type="text" placeholder="desrciption" required={true}/>
             <input onChange={(e) => setMuns(e.target.value)}
-                   className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400"
-                   name="muns" type="text" placeholder="Muns ..."/>
+                   className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
+                   name="muns" type="text" placeholder="Muns ..." required={true}/>
             <input onChange={(e) => setKg(e.target.value)}
-                   className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400"
-                   name="kg" type="text" placeholder="Kilograms ..."/>
-            <input onChange={(e)=>setPrice(e.target.value)} className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400"
-                   name="price" type="text" placeholder="Price/Mun ..."/>
-            <input onClick={()=>{ const b = calcBill(parseInt(muns),parseInt(kg),parseInt(price)); setTotal(b.toString())} } className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400"
-                   name="bill" type="text" placeholder="Total Bill" value={total}/>
-            <input className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400"
-                   name="amount" type="text" placeholder="Cash Received"/>
-            <input className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400"
-                   name="message" type="text" placeholder="Message " value={message} hidden={false}
-
+                   className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
+                   name="kg" type="text" placeholder="Kilograms ..." required={true}/>
+            <input onChange={(e)=>setPrice(e.target.value)} className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
+                   name="price" type="text" placeholder="Price/Mun ..." required={true}/>
+            <input onClick={()=>{ const b = calcBill(parseInt(muns),parseInt(kg),parseInt(price)); setTotal(b.toString())} } className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
+                   name="bill" type="text" placeholder="Total Bill" value={total} required={true}/>
+            <input className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
+                   name="amount" type="text" placeholder="Cash Received" required={true}/>
+            <input className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
+                   name="message" type="text" placeholder="Message " value={message} hidden={false} required={true}
             />
             <div className="flex gap-2">
                 <button type="submit" className="bg-amber-300 hover:bg-amber-400 p-2 w-24 rounded-3xl">Save</button>
