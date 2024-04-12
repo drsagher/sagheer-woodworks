@@ -21,11 +21,11 @@ export default function Form(){
 
     // Get a Session ID
 
-    const getSessionId ="https://telenorcsms.com.pk:27677/corporate_sms2/api/auth.jsp?msisdn=923400088191&password=Sww@988";
-    const toMobile = '923017362696';
-    const msg = 'Hello, World';
-    const mask ='Sagheer Wood Works';
-    const msgURL = `https://telenorcsms.com.pk:27677/corporate_sms2/api/sendsms.jsp?session_id=${getSessionId}&to=${toMobile}&text=${msg}&mask=${mask}`;
+    // const getSessionId ="https://telenorcsms.com.pk:27677/corporate_sms2/api/auth.jsp?msisdn=923400088191&password=Sww@988";
+    // const toMobile = '923017362696';
+    // const msg = 'Hello, World';
+    // const mask ='Sagheer Wood Works';
+    // const msgURL = `https://telenorcsms.com.pk:27677/corporate_sms2/api/sendsms.jsp?session_id=${getSessionId}&to=${toMobile}&text=${msg}&mask=${mask}`;
 
 
 
