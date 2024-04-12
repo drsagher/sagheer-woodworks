@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from 'react'
 import { useRef } from 'react'
 import {useRouter} from "next/navigation";
+import {cli} from "yaml/dist/cli";
 
 export default function Form(){
     const router = useRouter();
@@ -14,16 +15,30 @@ export default function Form(){
     const [total, setTotal] = useState('');
     const [client, setClient] = useState('');
     const [clientId, setClientId] = useState('');
-    const [message, setMessage] = useState('SMS Alert coming soon.');
-const calcBill = (muns:number, kg:number, price:number) => {
-    let result = 0;
-    let weight = kg /40;
-    result = muns + weight;
-    // result = (muns * 40) + kg;
-    result *= price;
-    return result;
-}
- const [listData, setListData] = useState([])
+
+    // let msg = `Hello, ${client} SMS Alert coming soon`;
+    const [message, setMessage] = useState('msg');
+
+    // Get a Session ID
+
+    const getSessionId ="https://telenorcsms.com.pk:27677/corporate_sms2/api/auth.jsp?msisdn=923400088191&password=Sww@988";
+    const toMobile = '923017362696';
+    const msg = 'Hello, World';
+    const mask ='Sagheer Wood Works';
+    const msgURL = `https://telenorcsms.com.pk:27677/corporate_sms2/api/sendsms.jsp?session_id=${getSessionId}&to=${toMobile}&text=${msg}&mask=${mask}`;
+
+
+
+    const calcBill = (muns:number, kg:number, price:number) => {
+        let result = 0;
+        let weight = kg /40;
+        result = muns + weight;
+        // result = (muns * 40) + kg;
+        result *= price;
+        return result;
+    }
+
+    const [listData, setListData] = useState([])
     useEffect(() => {
         fetch('/api/auth/viewclient',{next:{revalidate:1}, method: 'PUT'})
             .then((res) => res.json())
@@ -31,11 +46,14 @@ const calcBill = (muns:number, kg:number, price:number) => {
                 setListData(listData)
             })
     }, []);
+
     const [info, setInfo] = useState("");
-    const [data, setData] = useState([])
+    const [data, setData] = useState([]);
+
     const handleSubmit = async (e:FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
+
         const response = await fetch('/api/auth/entery', {
             method: 'POST',
             body: JSON.stringify({
@@ -51,14 +69,16 @@ const calcBill = (muns:number, kg:number, price:number) => {
                 message:formData.get("message")
             })
         })
-        console.log(response);
-        if(response.ok){
+            if(response.ok){
             // setInfo("Entry Saved!");
+
             alert('Entry Saved Successfully');
             router.push('/deo');
             router.refresh();
-        }else{  setInfo("Server Error!");}
+            }else{  setInfo("Server Error!");
+            }
     };
+
     const eventHandler = (e:React.ChangeEvent<any>) => {
         setClientId(e.target.value);
     }
@@ -115,7 +135,9 @@ const calcBill = (muns:number, kg:number, price:number) => {
             <input className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400"
                    name="amount" type="text" placeholder="Cash Received"/>
             <input className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400"
-                   name="message" type="text" placeholder="Cash Received" value={message} hidden={true}/>
+                   name="message" type="text" placeholder="Message " value={message} hidden={false}
+
+            />
             <div className="flex gap-2">
                 <button type="submit" className="bg-amber-300 hover:bg-amber-400 p-2 w-24 rounded-3xl">Save</button>
             </div>

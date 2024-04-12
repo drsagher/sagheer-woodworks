@@ -17,6 +17,8 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
                         <Link className="text-md w-full h-10 p-2 hover:bg-amber-400 text-white"
                               href="/admin">Home</Link>
                         <Link className="text-md w-full h-10 p-2 hover:bg-amber-400 text-white"
+                              href="/admin/viewbalance">View Balance</Link>
+                        <Link className="text-md w-full h-10 p-2 hover:bg-amber-400 text-white"
                               href="/admin/viewclient">View
                             Client Record</Link>
                         <Link className="text-md w-full h-10 p-2 hover:bg-amber-400 text-white"

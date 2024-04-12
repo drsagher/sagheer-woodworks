@@ -17,11 +17,7 @@ export default  function Page(){
 
     return(
     <div className="flex flex-col items-center justify-center bg-gray-100  py-4 ">
-        <div>
-            <select>
 
-            </select>
-        </div>
         <table className="table-auto border-slate-400 border-spacing-2">
             <caption className="caption-top text-center font-bold bg-amber-200 rounded-md p-2 text-amber-800 mb-2">
                 All Registered Clients Data
