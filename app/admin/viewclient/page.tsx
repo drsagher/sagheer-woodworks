@@ -8,7 +8,7 @@ export default  function Page(){
     const [totalClients, setTotalClients] = useState([]);
 
     useEffect(() => {
-        fetch('/api/auth/viewclient',{next:{revalidate:1}, method: 'GET'})
+        fetch('/api/auth/viewclient',{next:{revalidate:1}, method: 'PUT'})
             .then((res) => res.json())
             .then((listData) => {
                 setListData(listData)
@@ -16,12 +16,12 @@ export default  function Page(){
     }, []);
 
     useEffect(() => {
-        fetch('/api/auth/registeredclients',{next:{revalidate:1}, method: 'GET'})
+        fetch('/api/auth/registeredclients',{next:{revalidate:1}, method: 'PUT'})
             .then((res) => res.json())
             .then((totalClients) => {
                 setTotalClients(totalClients)
             })
-    }, []);
+    }, [totalClients]);
 
     // @ts-ignore
     return(
@@ -30,7 +30,7 @@ export default  function Page(){
         <table className="table-auto border-slate-400 border-spacing-2">
             <caption className="caption-top text-center font-bold bg-amber-200 rounded-md p-2 text-amber-800 mb-2">
                 All Registered Clients Data - <span className="font-bold text-blue-500">Total Registered Clients are
-                ({ totalClients[0]?.regusers })</span>
+                ({ totalClients.map(c=>c.regusers)})</span>
             </caption>
             <thead className="bg-black text-white">
             <tr>
