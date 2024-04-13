@@ -15,22 +15,23 @@ export default  function Page(){
             })
     }, []);
 
-    useEffect(() => {
+    useEffect( () => {
         fetch('/api/auth/registeredclients',{next:{revalidate:1}, method: 'PUT'})
             .then((res) => res.json())
             .then((totalClients) => {
                 setTotalClients(totalClients)
             })
-    }, [totalClients]);
+    }, []);
 
+    // @ts-ignore
     // @ts-ignore
     return(
     <div className="flex flex-col items-center justify-center bg-gray-100  py-4 ">
 
         <table className="table-auto border-slate-400 border-spacing-2">
             <caption className="caption-top text-center font-bold bg-amber-200 rounded-md p-2 text-amber-800 mb-2">
-                All Registered Clients Data - <span className="font-bold text-blue-500">Total Registered Clients are
-                ({ totalClients.map(c=>c.regusers)})</span>
+                All Registered Clients Data - Total Registered Clients are
+                ({ totalClients&& totalClients.map(c=>c["regclients"])})
             </caption>
             <thead className="bg-black text-white">
             <tr>
