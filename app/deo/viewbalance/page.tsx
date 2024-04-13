@@ -3,7 +3,6 @@ import React, {useEffect, useState} from "react";
 
 export default function ViewBalance(){
     const [listData, setListData] = useState([]);
-    const [totalClients, setTotalClients] = useState([{}]);
 
     useEffect(() => {
         fetch('/api/auth/viewbalance',{next:{revalidate:1}, method: 'PUT'})
@@ -13,20 +12,11 @@ export default function ViewBalance(){
             })
     }, []);
 
-    useEffect(() => {
-        fetch('/api/auth/registeredclients',{next:{revalidate:1}, method: 'PUT'})
-            .then((res) => res.json())
-            .then((totalClients) => {
-                setTotalClients(totalClients)
-            })
-    }, []);
-
     return(
         <div className="flex flex-col items-center justify-center bg-gray-100  py-4 ">
             <table className="table-auto border-slate-400 border-spacing-2">
                 <caption className="caption-top text-center font-bold bg-amber-200 rounded-md p-2 text-amber-800 mb-2">
-                    All Registered Clients Data - <span className="font-bold text-blue-500">Total Registered Clients are ({totalClients[0].regusers})</span>
-                </caption>
+                    All Clients Balance Sheet                </caption>
                 <thead className="bg-black text-white">
                 <tr>
                     <th className="border border-slate-300 p-2 ">CLIENT ID</th>
