@@ -28,7 +28,7 @@ export default  function Page(){
 
         <table className="table-auto border-slate-400 border-spacing-2">
             <caption className="caption-top text-center font-bold bg-amber-200 rounded-md p-2 text-amber-800 mb-2">
-                All Registered Clients Data - <span className="font-bold text-blue-500">Total Registered Clients are ({ totalClients[0]?.count })</span>
+                All Registered Clients Data - <span className="font-bold text-blue-500">Total Registered Clients are ({ totalClients[0]?.regusers })</span>
             </caption>
             <thead className="bg-black text-white">
             <tr>
