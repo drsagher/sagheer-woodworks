@@ -7,7 +7,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
                 <div className="flex gap-2 ">
                     <Link className="h-10 p-2 hover:bg-amber-400 font-bold text-green-800" href="/deo">Home</Link>
                     <Link className="h-10 p-2 hover:bg-amber-400 font-bold text-green-800" href="/deo/entryform">Entry</Link>
-                    <Link className="h-10 p-2 hover:bg-amber-400 font-bold text-green-800" href="/deo/balance">Check Balance</Link>
+                    <Link className="h-10 p-2 hover:bg-amber-400 font-bold text-green-800" href="/deo/viewbalance">Check Balance</Link>
                 </div>
                 </nav>
             {children}
