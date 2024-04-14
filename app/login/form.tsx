@@ -2,6 +2,8 @@
 import {FormEvent, useState} from "react";
 import {signIn} from "next-auth/react";
 import {useRouter} from "next/navigation";
+import querystring from 'querystring';
+
 export default function LoginForm(){
     const [message, setMessage] = useState("");
     const router = useRouter();
@@ -15,7 +17,7 @@ export default function LoginForm(){
                 router.push("/admin");
                 router.refresh();
             }else{
-                router.push("/deo");
+                router.push(`/deo?email=${formData.get('email')}`);
                 router.refresh();
             }
         }

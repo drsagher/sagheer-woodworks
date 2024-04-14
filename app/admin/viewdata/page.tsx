@@ -147,6 +147,7 @@ export default function Page(){
                 <th className="border border-slate-300 p-2 ">AMOUNT</th>
                 <th className="border border-slate-300 p-2 ">CLIENT ID</th>
                 <th className="border border-slate-300 p-2 ">MESSAGE</th>
+                <th className="border border-slate-300 p-2 ">BY</th>
             </tr>
             </thead>
             <tbody>
@@ -164,6 +165,7 @@ export default function Page(){
                         <td className="border border-slate-300 p-2 ">{item["amount"]}</td>
                         <td className="border border-slate-300 p-2 ">{item["clientid"]}</td>
                         <td className="border border-slate-300 p-2 ">{item["message"]}</td>
+                        <td className="border border-slate-300 p-2 ">{item["by"]}</td>
                     </tr>
                 ))
             }

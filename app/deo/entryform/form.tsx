@@ -2,8 +2,19 @@
 import React, {FormEvent, useCallback} from "react";
 import { useEffect, useState } from 'react'
 import {useRouter} from "next/navigation";
+import {getSession} from "next-auth/react";
 
 export default function Form(){
+
+    // User Information
+    const [email, setEmail] = useState('');
+    async function getUserDetails() {
+        const session = await  getSession();
+        const user = session?.user;
+        const email = user?.email;
+        setEmail(email);
+    }
+    getUserDetails().then();
     const router = useRouter();
     const [muns, setMuns] = useState('');
     const [kg, setKg] = useState('');
@@ -51,6 +62,7 @@ export default function Form(){
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
 
+
         const response = await fetch('/api/auth/entery', {
             method: 'POST',
             body: JSON.stringify({
@@ -63,7 +75,8 @@ export default function Form(){
                 bill:formData.get("bill"),
                 amount:formData.get("amount"),
                 clientid:formData.get("clientid"),
-                message:formData.get("message")
+                message:formData.get("message"),
+                by: email,
             })
         })
             if(response.ok){
@@ -84,60 +97,74 @@ export default function Form(){
     }
     return(
         <div>
-        <form  onSubmit={handleSubmit} className="flex flex-col gap-2 mx-auto max-w-md py-4">
-            <label className="text-center font-bold bg-amber-200 rounded-md p-2 text-amber-800">Entry Form</label>
-            <div className="flex gap-2 border-2 border-gray-200 p-2">
-                <div className="flex flex-col gap-2 justify-center w-1/3">
-                    <label className="font-bold text-md">Client ID :</label>
-                    <label className="font-bold text-md">Client Name:</label>
+            {email}
+            <form onSubmit={handleSubmit} className="flex flex-col gap-2 mx-auto max-w-md py-4">
+                <label className="text-center font-bold bg-amber-200 rounded-md p-2 text-amber-800">Entry Form</label>
+                <div className="flex gap-2 border-2 border-gray-200 p-2">
+                    <div className="flex flex-col gap-2 justify-center w-1/3">
+                        <label className="font-bold text-md">Client ID :</label>
+                        <label className="font-bold text-md">Client Name:</label>
+                    </div>
+                    <div className="flex flex-col gap-2  w-2/3">
+                        <select className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400"
+                                name="clientid" onClick={eventHandler}>
+                            {
+                                listData ?
+                                    listData.map((client) => {
+                                        return <option key={client["name"]}
+                                                       value={client["id"]}>{client["id"]} {client["name"]}</option>
+                                    }) : null
+                            }
+                        </select>
+                        <select className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400"
+                                name="client" onClick={eventHandlerId}>
+                            {
+                                listData ?
+                                    listData.map((client) => {
+                                        return <option key={client["id"]}
+                                                       value={client["name"]}>{client["id"]} {client["name"]}</option>
+                                    }) : null
+                            }
+                        </select>
+                    </div>
                 </div>
-                <div className="flex flex-col gap-2  w-2/3">
-                    <select className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400"
-                            name="clientid" onClick={eventHandler}>
-                        {
-                            listData ?
-                                listData.map((client) => {
-                                    return <option key={client["name"]}
-                                                   value={client["id"]}>{client["id"]} {client["name"]}</option>
-                                }) : null
-                        }
-                    </select>
-                    <select className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400"
-                            name="client" onClick={eventHandlerId}>
-                        {
-                            listData ?
-                                listData.map((client) => {
-                                    return <option key={client["id"]}
-                                                   value={client["name"]}>{client["id"]} {client["name"]}</option>
-                                }) : null
-                        }
-                    </select>
-                </div>
-            </div>
 
-            <input className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
-                   name="date" type="date" placeholder="dd-mm-yyyy" required={true}/>
-            <input className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
-                   name="desription" type="text" placeholder="desrciption" required={true}/>
-            <input onChange={(e) => setMuns(e.target.value)}
-                   className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
-                   name="muns" type="text" placeholder="Muns ..." required={true}/>
-            <input onChange={(e) => setKg(e.target.value)}
-                   className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
-                   name="kg" type="text" placeholder="Kilograms ..." required={true}/>
-            <input onChange={(e)=>setPrice(e.target.value)} className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
-                   name="price" type="text" placeholder="Price/Mun ..." required={true}/>
-            <input onClick={()=>{ const b = calcBill(parseInt(muns),parseInt(kg),parseInt(price)); setTotal(b.toString())} } className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
-                   name="bill" type="text" placeholder="Total Bill" value={total} required={true}/>
-            <input className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
-                   name="amount" type="text" placeholder="Cash Received" required={true}/>
-            <input className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
-                   name="message" type="text" placeholder="Message " value={message} hidden={false} required={true}
-            />
-            <div className="flex gap-2">
-                <button type="submit" className="bg-amber-300 hover:bg-amber-400 p-2 w-24 rounded-3xl">Save</button>
-            </div>
-        </form>
+                <input
+                    className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
+                    name="date" type="date" placeholder="dd-mm-yyyy" required={true}/>
+                <input
+                    className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
+                    name="desription" type="text" placeholder="desrciption" required={true}/>
+                <input onChange={(e) => setMuns(e.target.value)}
+                       className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
+                       name="muns" type="text" placeholder="Muns ..." required={true}/>
+                <input onChange={(e) => setKg(e.target.value)}
+                       className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
+                       name="kg" type="text" placeholder="Kilograms ..." required={true}/>
+                <input onChange={(e) => setPrice(e.target.value)}
+                       className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
+                       name="price" type="text" placeholder="Price/Mun ..." required={true}/>
+                <input onClick={() => {
+                    const b = calcBill(parseInt(muns), parseInt(kg), parseInt(price));
+                    setTotal(b.toString())
+                }}
+                       className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
+                       name="bill" type="text" placeholder="Total Bill" value={total} required={true}/>
+                <input
+                    className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
+                    name="amount" type="text" placeholder="Cash Received" required={true}/>
+                <input
+                    className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
+                    name="message" type="text" placeholder="Message " value={message} hidden={true} required={true}
+                />
+                <input
+                    className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
+                    name="by" type="text" placeholder="By " value={email} hidden={true} required={true}
+                />
+                <div className="flex gap-2">
+                    <button type="submit" className="bg-amber-300 hover:bg-amber-400 p-2 w-24 rounded-3xl">Save</button>
+                </div>
+            </form>
         </div>
     )
 }
