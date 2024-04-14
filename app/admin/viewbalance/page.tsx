@@ -20,8 +20,8 @@ export default function ViewBalance(){
                 <tr>
                     <th className="border border-slate-300 p-2 ">CLIENT ID</th>
                     <th className="border border-slate-300 p-2 ">CLIENT NAME</th>
-                    <th className="border border-slate-300 p-2 ">AMOUNT RECEIVED</th>
-                    <th className="border border-slate-300 p-2 ">PENDING DUES</th>
+                    <th className="border border-slate-300 p-2 ">PENDING</th>
+                    <th className="border border-slate-300 p-2 ">RECEIVED</th>
                     <th className="border border-slate-300 p-2 ">BALANCE</th>
                 </tr>
                 </thead>

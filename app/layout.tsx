@@ -8,7 +8,7 @@ import FooterPage from "@/app/components/footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Sagheer Wood Works, Pakpattan",
+  title: "Sagheer Shop, Pakpattan",
   description: "Deal in all kinds of wood",
 };
 export default async function RootLayout({
