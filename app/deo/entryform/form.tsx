@@ -38,6 +38,7 @@ export default function Form(){
         result = muns + weight;
         // result = (muns * 40) + kg;
         result *= price;
+        result = Math.round(result);
         return result;
     }
 
@@ -68,7 +69,7 @@ export default function Form(){
                 bill:formData.get("bill"),
                 amount:formData.get("amount"),
                 clientid:formData.get("clientid"),
-                message:`Dear ${formData.get("client")}! Your Current Bill is ${formData.get("bill")}. We Received ${formData.get("amount")} on ${formData.get("date")}. Thank You! Sagheer Shop, Pakpattan`,
+                message:`Dear Client ${formData.get("client")}! Your Bill:${formData.get("bill")},Payment Received on ${formData.get("date")}:${formData.get("amount")}.Thank You! From: Sagheer Shop, Pakpattan`,
                 by: email,
             })
         })

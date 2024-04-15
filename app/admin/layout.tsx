@@ -38,6 +38,8 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
                               href="/admin/delrecord">Delete Record</Link>
                         <Link className="text-md w-full h-10 p-2 hover:bg-amber-400 text-white"
                               href="/admin/statusclient">Client Status</Link>
+                        <Link className="text-md w-full h-10 p-2 hover:bg-amber-400 text-white"
+                              href="/admin/xregister">X Register</Link>
                     </nav>
                 )}
             </div >
