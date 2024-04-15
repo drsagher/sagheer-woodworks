@@ -24,9 +24,6 @@ export default function Form(){
     const [client, setClient] = useState('');
     const [clientId, setClientId] = useState('');
 
-    // let msg = `Hello, ${client} SMS Alert coming soon`;
-    const [message, setMessage] = useState('msg');
-
     // Get a Session ID
 
     // const getSessionId ="https://telenorcsms.com.pk:27677/corporate_sms2/api/auth.jsp?msisdn=923400088191&password=Sww@988";
@@ -34,8 +31,6 @@ export default function Form(){
     // const msg = 'Hello, World';
     // const mask ='Sagheer Wood Works';
     // const msgURL = `https://telenorcsms.com.pk:27677/corporate_sms2/api/sendsms.jsp?session_id=${getSessionId}&to=${toMobile}&text=${msg}&mask=${mask}`;
-
-
 
     const calcBill = (muns:number, kg:number, price:number) => {
         let result = 0;
@@ -61,8 +56,6 @@ export default function Form(){
     const handleSubmit = async (e:FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
-
-
         const response = await fetch('/api/auth/entery', {
             method: 'POST',
             body: JSON.stringify({
@@ -75,14 +68,13 @@ export default function Form(){
                 bill:formData.get("bill"),
                 amount:formData.get("amount"),
                 clientid:formData.get("clientid"),
-                message:formData.get("message"),
+                message:`Dear ${formData.get("client")}! Your Current Bill is ${formData.get("bill")}. We Received ${formData.get("amount")} on ${formData.get("date")}. Thank You! Sagheer Shop, Pakpattan`,
                 by: email,
             })
         })
             if(response.ok){
-            // setInfo("Entry Saved!");
-
             alert('Entry Saved Successfully');
+
             router.push('/deo');
             router.refresh();
             }else{  setInfo("Server Error!");
@@ -152,10 +144,6 @@ export default function Form(){
                 <input
                     className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
                     name="amount" type="text" placeholder="Cash Received" required={true}/>
-                <input
-                    className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
-                    name="message" type="text" placeholder="Message " value={message} hidden={true} required={true}
-                />
                 <input
                     className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
                     name="by" type="text" placeholder="By " value={email} hidden={true} required={true}
