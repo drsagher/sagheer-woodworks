@@ -51,6 +51,15 @@ export default function Form(){
             })
     }, []);
 
+    const [balance, setBalance] = useState([]);
+    useEffect(() => {
+        fetch(`/api/auth/balance?clientid=${clientId}`,{next:{revalidate:1}, method: 'PUT'})
+            .then((res) => res.json())
+            .then((balance) => {
+                setBalance(balance)
+            })
+    }, [clientId]);
+
     const [info, setInfo] = useState("");
     const [data, setData] = useState([]);
 
@@ -69,7 +78,7 @@ export default function Form(){
                 bill:formData.get("bill"),
                 amount:formData.get("amount"),
                 clientid:formData.get("clientid"),
-                message:`Dear Client ${formData.get("client")}! Your Bill:${formData.get("bill")},Payment Received on ${formData.get("date")}:${formData.get("amount")}.Thank You! From: Sagheer Shop, Pakpattan`,
+                message:`Dear Client ${formData.get("client")}! Your Previous Balance=${balance?.map((bal: any) => bal.balance)}. Current Bill=${formData.get("bill")}. Payment Received on ${formData.get("date")}=${formData.get("amount")}.Thank You! From: Sagheer Shop, Pakpattan`,
                 by: email,
             })
         })
@@ -88,8 +97,12 @@ export default function Form(){
     const eventHandlerId = (e:React.ChangeEvent<any>) => {
         setClient(e.target.value);
     }
+
+
+
     return(
         <div>
+
             <form onSubmit={handleSubmit} className="flex flex-col gap-2 mx-auto max-w-md py-4">
                 <label className="text-center font-bold bg-amber-200 rounded-md p-2 text-amber-800">Y Entry Form</label>
                 <div className="flex gap-2 border-2 border-gray-200 p-2">

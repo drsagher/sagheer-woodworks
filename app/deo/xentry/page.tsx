@@ -42,7 +42,7 @@ export default function XEntry(){
                 description:formData.get("description"),
                 bill:formData.get("bill"),
                 payment:formData.get("payment"),
-                message:`Dear Client ${formData.get("client")}! Your Bill:${formData.get("bill")},Payment Received on ${formData.get("date")}:${formData.get("payment")}.Thank You! From: Sagheer Shop, Pakpattan`,
+                message:`Dear Client ${formData.get("client")}!Your Previous Balance=${balance?.map((bal: any) => bal.balance)}. Current Bill=${formData.get("bill")}. Payment Received on ${formData.get("date")}=${formData.get("payment")}.Thank You! From: Sagheer Shop, Pakpattan`,
                 by: email,
                 date:formData.get("date"),
                 clientid:formData.get("clientid"),
@@ -55,6 +55,15 @@ export default function XEntry(){
         }else{  alert("Server Error!");
         }
     };
+
+    const [balance, setBalance] = useState([]);
+    useEffect(() => {
+        fetch(`/api/auth/xbalance?clientid=${clientId}`,{next:{revalidate:1}, method: 'PUT'})
+            .then((res) => res.json())
+            .then((balance) => {
+                setBalance(balance)
+            })
+    }, [clientId]);
 
     return(
         <div>
