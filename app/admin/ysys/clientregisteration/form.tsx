@@ -30,7 +30,7 @@ export default function Form(){
             console.log(response);
             if(response.ok){
                 setMessage("Client Registered Successfully!");
-                router.push('/admin');
+                router.push('/admin/ysys');
                 router.refresh();
                 alert("Client Registered Successfully!");
             }
