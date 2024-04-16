@@ -51,7 +51,7 @@ export default function Form(){
                    name="mobile" type="text" placeholder="Client mobile with country code"/>
             <div className="flex gap-2">
                 <button type="submit" className="bg-amber-300 hover:bg-amber-400 p-2 w-24 rounded-3xl">Register</button>
-               <Link href="/admin" className="bg-amber-400 hover:bg-amber-500 p-2 w-16 rounded-3xl">Back</Link>
+               <Link href="/admin/ysys" className="bg-amber-400 hover:bg-amber-500 p-2 w-16 rounded-3xl">Back</Link>
                 { <span className="font-bold text-amber-700"> {message}</span> }
             </div>
         </form>
