@@ -157,10 +157,10 @@ export default function Form(){
                 <input
                     className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
                     name="amount" type="text" placeholder="Cash Received" required={true}/>
-                <input
-                    className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
-                    name="by" type="text" placeholder="By " value={email} hidden={true} required={true}
-                />
+                {/*<input*/}
+                {/*    className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"*/}
+                {/*    name="by" type="text" placeholder="By " value={email} hidden={true} required={true}*/}
+                {/*/>*/}
                 <div className="flex gap-2">
                     <button type="submit" className="bg-amber-300 hover:bg-amber-400 p-2 w-24 rounded-3xl">Save</button>
                 </div>
