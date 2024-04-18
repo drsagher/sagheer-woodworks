@@ -44,7 +44,7 @@ export default function Form(){
                    name="mobile" type="text" placeholder="Client mobile with country code"/>
             <select name="status"
                     className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400">
-                <option key="active" value="active">Active</option>
+                <option key="active" value="active" selected={true}>Active</option>
                 <option key="froze" value="froze">Froze</option>
             </select>
             <div className="flex gap-2">
