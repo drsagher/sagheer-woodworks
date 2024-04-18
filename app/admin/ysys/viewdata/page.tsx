@@ -93,7 +93,7 @@ export default function Page(){
         setToDate(e.target.value);
     }
     return(
-    <div className="flex flex-col items-center justify-center bg-gray-100 py-4 ">
+    <div className="flex flex-col bg-gray-100 p-2 ">
         <div className="flex flex-col p-2 rounded-xl gap-4">
             {/* Filter Record By Client */}
             <div className="flex items-center justify-between gap-4 bg-gray-200 p-1 rounded-xl">
@@ -130,47 +130,49 @@ export default function Page(){
                 >Show All Data</button>
             </div>
         </div>
-        <table className="table-auto border-slate-400 border-spacing-1">
-            <caption className="caption-top text-center font-bold bg-amber-200 rounded-md p-2 text-amber-800 mb-2">
+        <div className="flex flex-col overflow-auto px-6">
+        <table className="table-auto border-slate-400 overflow-auto">
+            <caption className="caption-top text-center font-bold bg-amber-200 rounded-md text-amber-800 ">
                 All Client Entries Record
             </caption>
             <thead className="bg-black text-white">
-            <tr>
-                <th className="border border-slate-300 p-2 ">ID</th>
-                <th className="border border-slate-300 p-2 ">CLIENT</th>
-                <th className="border border-slate-300 p-2 ">DATE</th>
-                <th className="border border-slate-300 p-2 ">DESCRIPTION</th>
-                <th className="border border-slate-300 p-2 ">MUNS</th>
-                <th className="border border-slate-300 p-2 ">KG</th>
-                <th className="border border-slate-300 p-2 ">PRICE</th>
-                <th className="border border-slate-300 p-2 ">BILL</th>
-                <th className="border border-slate-300 p-2 ">AMOUNT</th>
-                <th className="border border-slate-300 p-2 ">CLIENT ID</th>
-                <th className="border border-slate-300 p-2 ">MESSAGE</th>
-                <th className="border border-slate-300 p-2 ">BY</th>
+            <tr className="text-sm">
+                <th className="border border-slate-300  ">ID</th>
+                <th className="border border-slate-300 ">CLIENT</th>
+                <th className="border border-slate-300 ">DATE</th>
+                <th className="border border-slate-300 ">DESCRIPTION</th>
+                <th className="border border-slate-300 ">MUNS</th>
+                <th className="border border-slate-300 ">KG</th>
+                <th className="border border-slate-300 ">PRICE</th>
+                <th className="border border-slate-300 ">BILL</th>
+                <th className="border border-slate-300 ">AMOUNT</th>
+                <th className="border border-slate-300 ">CLIENT ID</th>
+                <th className="border border-slate-300 ">MESSAGE</th>
+                <th className="border border-slate-300 ">BY</th>
             </tr>
             </thead>
             <tbody>
             {
                 listData && listData.map((item, index) => (
-                    <tr key={index} className="odd:bg-gray-200 odd:text-blue-700 text-center even:text-gray-700 hover:bg-green-200">
-                        <td className="border border-slate-300 p-2 ">{item["id"]}</td>
-                        <td className="border border-slate-300 p-2 ">{item["client"]}</td>
-                        <td className="border border-slate-300 p-2 ">{item["date"]}</td>
-                        <td className="border border-slate-300 p-2 ">{item["desription"]}</td>
-                        <td className="border border-slate-300 p-2 ">{item["muns"]}</td>
-                        <td className="border border-slate-300 p-2 ">{item["kg"]}</td>
-                        <td className="border border-slate-300 p-2 ">{item["price"]}</td>
-                        <td className="border border-slate-300 p-2 ">{item["bill"]}</td>
-                        <td className="border border-slate-300 p-2 ">{item["amount"]}</td>
-                        <td className="border border-slate-300 p-2 ">{item["clientid"]}</td>
-                        <td className="border border-slate-300 p-2 ">{item["message"]}</td>
-                        <td className="border border-slate-300 p-2 ">{item["by"]}</td>
+                    <tr key={index} className=" text-sm odd:bg-gray-200 odd:text-blue-700 text-center even:text-gray-700 hover:bg-green-200 overflow-auto">
+                        <td className="border border-slate-300 ">{item["id"]}</td>
+                        <td className="border border-slate-300  ">{item["client"]}</td>
+                        <td className="border border-slate-300 ">{item["date"]}</td>
+                        <td className="border border-slate-300 ">{item["desription"]}</td>
+                        <td className="border border-slate-300 ">{item["muns"]}</td>
+                        <td className="border border-slate-300  ">{item["kg"]}</td>
+                        <td className="border border-slate-300 ">{item["price"]}</td>
+                        <td className="border border-slate-300 ">{item["bill"]}</td>
+                        <td className="border border-slate-300 ">{item["amount"]}</td>
+                        <td className="border border-slate-300 ">{item["clientid"]}</td>
+                        <td className="border border-slate-300 ">{item["message"]}</td>
+                        <td className="border border-slate-300 ">{item["by"]}</td>
                     </tr>
                 ))
             }
             </tbody>
         </table>
+        </div>
     </div>
     )
 }
