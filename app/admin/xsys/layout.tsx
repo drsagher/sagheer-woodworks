@@ -18,6 +18,10 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
                               href="/admin/xsys">Home X</Link>
                         <Link className="text-md w-full h-10 p-2 hover:bg-amber-400 text-white"
                               href="/admin/xsys/xregister">Register X</Link>
+                        <Link className="text-md w-full h-10 p-2 hover:bg-amber-400 text-white"
+                              href="/admin/xsys/viewbalance">Balance X</Link>
+                        <Link className="text-md w-full h-10 p-2 hover:bg-amber-400 text-white"
+                              href="/admin/xsys/viewclient">View Client Record X</Link>
 
                     </nav>
                 )}
