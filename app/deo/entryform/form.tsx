@@ -8,13 +8,13 @@ export default function Form(){
 
     // User Information
     const [email, setEmail] = useState('');
-    async function getUserDetails() {
-        const session = await  getSession();
-        const user = session?.user;
-        const email = user?.email;
-        email && setEmail(email);
-    }
-    getUserDetails().then();
+    // async function getUserDetails() {
+    //     const session = await  getSession();
+    //     const user = session?.user;
+    //     const email = user?.email;
+    //     email && setEmail(email);
+    // }
+    // getUserDetails().then();
     const router = useRouter();
     const [muns, setMuns] = useState('');
     const [kg, setKg] = useState('');
