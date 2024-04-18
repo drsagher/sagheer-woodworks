@@ -102,7 +102,6 @@ export default function Form(){
 
     return(
         <div>
-            {getSessionId}
             <form onSubmit={handleSubmit} className="flex flex-col gap-2 mx-auto max-w-md py-4">
                 <label className="text-center font-bold bg-amber-200 rounded-md p-2 text-amber-800">Y Entry Form</label>
                 <div className="flex gap-2 border-2 border-gray-200 p-2">
