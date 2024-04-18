@@ -1,5 +1,5 @@
 'use client'
-import {FormEvent, useState} from "react";
+import React, {FormEvent, useState} from "react";
 import {useRouter} from "next/navigation";
 import Link from "next/link";
 
@@ -9,22 +9,15 @@ export default function Form(){
     const handleSubmit = async (e:FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
-        if(formData.get('name') === ""){
-            setMessage("Please enter a name");
-        }
-        if(formData.get('shop') === ""){
-            setMessage("Please enter a shop name");
-        }
-        if(formData.get('mobile') === ""){
-            setMessage("Please enter a mobile number");
-        }
-        if(!(formData.get('name') === "" && (formData.get('shop') === "" && formData.get('mobile') === ""))){
+
+        if(!(formData.get('name') === "" && (formData.get('shop') === "" && formData.get('mobile') === ""&& formData.get('status') === ""))){
             const response = await fetch('/api/auth/client', {
                 method: 'POST',
                 body: JSON.stringify({
                     name:formData.get("name"),
                     shop:formData.get("shop"),
-                    mobile:formData.get("mobile")
+                    mobile:formData.get("mobile"),
+                    status:formData.get("status")
                 })
             })
             console.log(response);
@@ -49,10 +42,15 @@ export default function Form(){
                    name="shop" type="text" placeholder="Client Shop name"/>
             <input className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"
                    name="mobile" type="text" placeholder="Client mobile with country code"/>
+            <select name="status"
+                    className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400">
+                <option key="active" value="active">Active</option>
+                <option key="froze" value="froze">Froze</option>
+            </select>
             <div className="flex gap-2">
                 <button type="submit" className="bg-amber-300 hover:bg-amber-400 p-2 w-24 rounded-3xl">Register</button>
-               <Link href="/admin/ysys" className="bg-amber-400 hover:bg-amber-500 p-2 w-16 rounded-3xl">Back</Link>
-                { <span className="font-bold text-amber-700"> {message}</span> }
+                <Link href="/admin/ysys" className="bg-amber-400 hover:bg-amber-500 p-2 w-16 rounded-3xl">Back</Link>
+                {<span className="font-bold text-amber-700"> {message}</span>}
             </div>
         </form>
     )
