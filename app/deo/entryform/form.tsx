@@ -101,7 +101,7 @@ export default function Form(){
     return(
         <div>
             <form onSubmit={handleSubmit} className="flex flex-col gap-2 mx-auto max-w-md py-4">
-                <label className="p-2 text-slate-500 font-bold uppercase">Y Entry</label>
+                <label className="p-2 text-slate-500 font-bold uppercase">Wood Record</label>
                 <div className="flex gap-2 border-2 border-slate-500 p-2">
                     <div className="flex flex-col gap-2 justify-center w-1/3">
                         <label className="p-2 text-slate-500 font-bold uppercase">Client ID :</label>

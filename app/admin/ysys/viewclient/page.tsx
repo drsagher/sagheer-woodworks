@@ -28,29 +28,28 @@ export default  function Page(){
     return(
     <div className="flex flex-col items-center justify-center bg-gray-100  py-4 ">
 
-        <table className="table-auto border-slate-400 border-spacing-2">
-            <caption className="caption-top text-center font-bold bg-amber-200 rounded-md p-2 text-amber-800 mb-2">
-                All Registered Clients Data - Total Active Clients are
-                ({ totalClients&& totalClients.map(c=>c["regclients"])})
+        <table className="table-auto bg-slate-100 overflow-auto w-full">
+            <caption className="p-2 text-slate-500 font-bold uppercase">
+                All Wood Clients - (Active={ totalClients&& totalClients.map(c=>c["regclients"])})
             </caption>
-            <thead className="bg-black text-white">
+            <thead className="bg-slate-200 text-md">
             <tr>
-                <th className="border border-slate-300 p-2 ">ID</th>
-                <th className="border border-slate-300 p-2 ">NAME</th>
-                <th className="border border-slate-300 p-2 ">SHOP</th>
-                <th className="border border-slate-300 p-2 ">MOBILE</th>
-                <th className="border border-slate-300 p-2 ">STATUS</th>
+                <th className="p-2 text-slate-500 font-bold uppercase">ID</th>
+                <th className="p-2 text-slate-500 font-bold uppercase">NAME</th>
+                <th className="p-2 text-slate-500 font-bold uppercase">SHOP</th>
+                <th className="p-2 text-slate-500 font-bold uppercase">MOBILE</th>
+                <th className="p-2 text-slate-500 font-bold uppercase">STATUS</th>
             </tr>
             </thead>
             <tbody>
             {
                 listData && listData.map(({id, mobile, name, shop, status}) => (
-                    <tr key={id} className="odd:bg-gray-100 odd:text-blue-700 text-center even:text-gray-700 hover:bg-gray-200">
-                        <td className="border border-slate-300 p-2 ">{id}</td>
-                        <td className="border border-slate-300 p-2 ">{name} </td>
-                        <td className="border border-slate-300 p-2 ">{shop}</td>
-                        <td className="border border-slate-300 p-2 ">{mobile}</td>
-                        <td className="border border-slate-300 p-2 ">{status}</td>
+                    <tr key={id} className="hover:bg-slate-300 text-md even:bg-slate-200">
+                        <td className="p-2 text-slate-500">{id}</td>
+                        <td className="p-2 text-slate-500">{name} </td>
+                        <td className="p-2 text-slate-500">{shop}</td>
+                        <td className="p-2 text-slate-500">{mobile}</td>
+                        <td className="p-2 text-slate-500">{status}</td>
                     </tr>
                 ))
             }

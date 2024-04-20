@@ -66,8 +66,9 @@ export default function XEntry(){
     }, [clientId]);
 
     return(
+        <div>
             <form className="flex flex-col gap-2 mx-auto max-w-md py-4" onSubmit={handleSubmit}>
-                <label className="p-2 text-slate-500 font-bold uppercase">X Entry</label>
+                <label className="p-2 text-slate-500 font-bold uppercase">Ledger Entry</label>
 
                 <select className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800"
                         name="clientid">
@@ -111,5 +112,6 @@ export default function XEntry(){
                 </div>
 
             </form>
+        </div>
     )
 }
