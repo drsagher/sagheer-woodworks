@@ -98,19 +98,17 @@ export default function Form(){
         setClient(e.target.value);
     }
 
-
-
     return(
         <div>
             <form onSubmit={handleSubmit} className="flex flex-col gap-2 mx-auto max-w-md py-4">
-                <label className="text-center font-bold bg-amber-200 rounded-md p-2 text-amber-800">Y Entry Form</label>
-                <div className="flex gap-2 border-2 border-gray-200 p-2">
+                <label className="p-2 text-slate-500 font-bold uppercase">Y Entry</label>
+                <div className="flex gap-2 border-2 border-slate-500 p-2">
                     <div className="flex flex-col gap-2 justify-center w-1/3">
-                        <label className="font-bold text-md">Client ID :</label>
-                        <label className="font-bold text-md">Client Name:</label>
+                        <label className="p-2 text-slate-500 font-bold uppercase">Client ID :</label>
+                        <label className="p-2 text-slate-500 font-bold uppercase">Client Name:</label>
                     </div>
                     <div className="flex flex-col gap-2  w-2/3">
-                        <select className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400"
+                        <select className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800"
                                 name="clientid" onClick={eventHandler}>
                             {
                                 listData ?
@@ -120,7 +118,7 @@ export default function Form(){
                                     }) : null
                             }
                         </select>
-                        <select className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400"
+                        <select className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800"
                                 name="client" onClick={eventHandlerId}>
                             {
                                 listData ?
@@ -134,35 +132,32 @@ export default function Form(){
                 </div>
 
                 <input
-                    className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
+                    className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800"
                     name="date" type="date" placeholder="dd-mm-yyyy" required={true}/>
                 <input
-                    className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
+                    className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800"
                     name="desription" type="text" placeholder="desrciption" required={true}/>
                 <input onChange={(e) => setMuns(e.target.value)}
-                       className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
+                       className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800"
                        name="muns" type="text" placeholder="Muns ..." required={true}/>
                 <input onChange={(e) => setKg(e.target.value)}
-                       className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
+                       className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800"
                        name="kg" type="text" placeholder="Kilograms ..." required={true}/>
                 <input onChange={(e) => setPrice(e.target.value)}
-                       className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
+                       className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800"
                        name="price" type="text" placeholder="Price/Mun ..." required={true}/>
                 <input onClick={() => {
                     const b = calcBill(parseInt(muns), parseInt(kg), parseInt(price));
                     setTotal(b.toString())
                 }}
-                       className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
+                       className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800"
                        name="bill" type="text" placeholder="Total Bill" value={total} required={true}/>
                 <input
-                    className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
+                    className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800"
                     name="amount" type="text" placeholder="Cash Received" required={true}/>
-                {/*<input*/}
-                {/*    className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"*/}
-                {/*    name="by" type="text" placeholder="By " value={email} hidden={true} required={true}*/}
-                {/*/>*/}
+
                 <div className="flex gap-2">
-                    <button type="submit" className="bg-amber-300 hover:bg-amber-400 p-2 w-24 rounded-3xl">Save</button>
+                    <button type="submit" className="text-slate-500 bg-slate-900 hover:bg-slate-800 p-1 w-24 rounded-md uppercase">Save</button>
                 </div>
             </form>
         </div>

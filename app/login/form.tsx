@@ -5,7 +5,6 @@ import {useRouter} from "next/navigation";
 import querystring from 'querystring';
 
 export default function LoginForm(){
-    const [message, setMessage] = useState("");
     const router = useRouter();
     const handleSubmit = async (e:FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -17,26 +16,30 @@ export default function LoginForm(){
                 router.push("/admin");
                 router.refresh();
             }else{
-                router.push(`/deo?email=${formData.get('email')}`);
+                router.push('/deo');
                 router.refresh();
             }
         }
     };
     return(
-        <form onSubmit={handleSubmit} className="flex flex-col gap-2 mx-auto max-w-md py-4">
-            <label className="text-center font-bold bg-amber-200 rounded-md p-2 text-amber-800">Login Form</label>
-            <input className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"
-                   name="email" type="email" placeholder="Email" />
-            <input className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"
-                   name="password" type="password" placeholder="Password" />
-            <div className="flex flex-col gap-2">
-                <select name="usertype" className="border-2 border-rose-600 h-10 rounded-md">
-                    <option value="DEO" selected>DEO</option>
-                    <option value="Admin" >Admin</option>
-                </select>
-                <button type="submit" className="bg-amber-300 hover:bg-amber-400 p-2 w-24 rounded-3xl">Login</button>
-                { <span className="font-bold text-amber-700"> {message}</span> }
-            </div>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4 mx-auto max-w-md mt-2 mb-2 p-6">
+            <label className="p-2 text-slate-900 font-bold uppercase">Login</label>
+
+            <input
+                className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800"
+                name="email" type="email" placeholder="Enter email"/>
+
+            <input
+                className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800"
+                name="password" type="password" placeholder="Password"/>
+
+            <select name="usertype"
+                    className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800">
+                <option value="DEO" selected>DEO</option>
+                <option value="Admin">Admin</option>
+            </select>
+
+            <button type="submit" className="text-slate-500 bg-slate-900 hover:bg-slate-800 p-1 w-24 rounded-md uppercase">Login</button>
         </form>
     )
 }

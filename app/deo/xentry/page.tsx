@@ -66,11 +66,10 @@ export default function XEntry(){
     }, [clientId]);
 
     return(
-        <div>
             <form className="flex flex-col gap-2 mx-auto max-w-md py-4" onSubmit={handleSubmit}>
-                <label className="text-center font-bold bg-amber-200 rounded-md p-2 text-amber-800">X Entry Form</label>
+                <label className="p-2 text-slate-500 font-bold uppercase">X Entry</label>
 
-                <select className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400"
+                <select className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800"
                         name="clientid">
                     {
                         listData ?
@@ -80,7 +79,7 @@ export default function XEntry(){
                             }) : null
                     }
                 </select>
-                <select className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400"
+                <select className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800"
                         name="client">
                     {
                         listData ?
@@ -92,26 +91,25 @@ export default function XEntry(){
                 </select>
 
                 <input
-                    className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
-                    name="description" type="text" placeholder="desrciption" required={true}/>
+                    className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800"
+                    name="description" type="text" placeholder="Desrciption" required={true}/>
 
                 <input
-                    className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
-                    name="bill" type="text" placeholder="Bill Amount" required={true}/>
+                    className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800"
+                    name="bill" type="text" placeholder="Bill amount" required={true}/>
 
                 <input
-                    className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
+                    className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800"
                     name="payment" type="text" placeholder="Payment" required={true}/>
 
                 <input
-                    className="border-2 border-gray-300 h-10 rounded-md pl-2 active:border-amber-400 required:border-red-900"
+                    className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800"
                     name="date" type="date" placeholder="dd-mm-yyyy" required={true}/>
 
                 <div className="flex gap-2">
-                    <button type="submit" className="bg-amber-300 hover:bg-amber-400 p-2 w-24 rounded-3xl">Save</button>
+                    <button type="submit" className="text-slate-500 bg-slate-900 hover:bg-slate-800 p-1 w-24 rounded-md uppercase">Save</button>
                 </div>
 
             </form>
-        </div>
     )
 }
