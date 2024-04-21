@@ -42,7 +42,7 @@ export default function XEntry(){
                 description:formData.get("description"),
                 bill:formData.get("bill"),
                 payment:formData.get("payment"),
-                message:`Dear Client ${formData.get("client")}!Your Previous Balance=${balance?.map((bal: any) => bal.balance)}. Current Bill=${formData.get("bill")}. Payment Received on ${formData.get("date")}=${formData.get("payment")}.Thank You! Contact: Sagheer Shop, Pakpattan. Mobile:+923077111988`,
+                message:`Dear Client ${formData.get("client")}!Your Previous Balance=${balance?.map((bal: any) => bal.balance)}. Current Bill=${formData.get("bill")}. Payment Received on ${formData.get("date")}=${formData.get("payment")}.Thank You! From Sagheer Shop, Pakpattan. Call on 0307-7111988`,
                 by: email,
                 date:formData.get("date"),
                 clientid:formData.get("clientid"),

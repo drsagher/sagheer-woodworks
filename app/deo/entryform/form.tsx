@@ -78,7 +78,7 @@ export default function Form(){
                 bill:formData.get("bill"),
                 amount:formData.get("amount"),
                 clientid:formData.get("clientid"),
-                message:`Dear Client ${formData.get("client")}! Your Previous Balance=${balance?.map((bal: any) => bal.balance)}. Current Bill=${formData.get("bill")}. Payment Received on ${formData.get("date")}=${formData.get("amount")}.Thank You! From: Sagheer Shop, Pakpattan`,
+                message:`Dear Client ${formData.get("client")}! Your Previous Balance=${balance?.map((bal: any) => bal.balance)}. Current Bill=${formData.get("bill")}. Payment Received on ${formData.get("date")}=${formData.get("amount")}.Thank You! From Sagheer Shop, Pakpattan. Call on 0307-7111988`,
                 by: email,
             })
         })
