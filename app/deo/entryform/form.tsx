@@ -99,8 +99,8 @@ export default function Form(){
     }
 
     return(
-        <div>
-            <form onSubmit={handleSubmit} className="flex flex-col gap-2 mx-auto max-w-md py-4">
+        // <div>
+            <form onSubmit={handleSubmit} className="flex flex-col gap-2 mx-auto max-w-md py-4 w-full">
                 <label className="p-2 text-slate-500 font-bold uppercase">Wood Record</label>
                 <div className="flex gap-2 border-2 border-slate-500 p-2">
                     <div className="flex flex-col gap-2 justify-center w-1/3">
@@ -160,6 +160,6 @@ export default function Form(){
                     <button type="submit" className="text-slate-500 bg-slate-900 hover:bg-slate-800 p-1 w-24 rounded-md uppercase">Save</button>
                 </div>
             </form>
-        </div>
+        // </div>
     )
 }

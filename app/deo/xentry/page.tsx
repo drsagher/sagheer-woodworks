@@ -42,7 +42,7 @@ export default function XEntry(){
                 description:formData.get("description"),
                 bill:formData.get("bill"),
                 payment:formData.get("payment"),
-                message:`Dear Client ${formData.get("client")}!Your Previous Balance=${balance?.map((bal: any) => bal.balance)}. Current Bill=${formData.get("bill")}. Payment Received on ${formData.get("date")}=${formData.get("payment")}.Thank You! From: Sagheer Shop, Pakpattan`,
+                message:`Dear Client ${formData.get("client")}!Your Previous Balance=${balance?.map((bal: any) => bal.balance)}. Current Bill=${formData.get("bill")}. Payment Received on ${formData.get("date")}=${formData.get("payment")}.Thank You! Contact: Sagheer Shop, Pakpattan. Mobile:+923077111988`,
                 by: email,
                 date:formData.get("date"),
                 clientid:formData.get("clientid"),
@@ -66,8 +66,8 @@ export default function XEntry(){
     }, [clientId]);
 
     return(
-        <div>
-            <form className="flex flex-col gap-2 mx-auto max-w-md py-4" onSubmit={handleSubmit}>
+        // <div>
+            <form className="flex flex-col gap-4 mx-auto max-w-md py-4 w-full" onSubmit={handleSubmit}>
                 <label className="p-2 text-slate-500 font-bold uppercase">Ledger Entry</label>
 
                 <select className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800"
@@ -112,6 +112,6 @@ export default function XEntry(){
                 </div>
 
             </form>
-        </div>
+        // </div>
     )
 }

@@ -6,7 +6,7 @@ import { FaWpforms } from "react-icons/fa6";
 
 export default function AdminLayout({ children }: { children: ReactNode }) {
     return(
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col ">
             <nav className="flex bg-slate-600 text-sm justify-between">
 
                 <Link className="flex items-center gap-1 p-1 hover:bg-gradient-to-r from-slate-500 text-slate-300 uppercase" href="/deo">
@@ -30,7 +30,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
                 </Link>
 
             </nav>
-            <div className="flex flex-col min-h-screen items-center text-center justify-center bg-slate-100">
+            <div className="flex flex-col items-center text-center justify-center bg-slate-100">
                 {children}
             </div>
 
