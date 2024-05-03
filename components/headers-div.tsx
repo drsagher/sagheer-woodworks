@@ -14,7 +14,7 @@ export default async function HeadersDiv(){
                 <nav >
                     { !!session &&  <div className="flex text-white gap-2"> { user?.email } <Logout/> </div> }
                     {
-                        !session && <Link href="/"
+                        !session && <Link href="/public"
                                           className="text-sm text-amber-200 hover:text-slate-50"><RiLoginCircleLine size={25}/>
                         </Link>
                     }

@@ -2,7 +2,7 @@
 import {useEffect, useState} from "react";
 import React from "react";
 import { revalidatePath } from 'next/cache'
-import {DataTable} from "@/app/admin/ysys/viewclient/data-table";
+import {DataTable} from "@/components/data-table";
 import {columns} from "@/app/admin/ysys/viewclient/columns";
 
 export default  function Page(){

@@ -24,7 +24,7 @@ export default function Page(){
     }, [fetchAllData, allListUrl]);
     return(
         <div className="flex flex-col overflow-auto">
-            <p className="font-bold text-xl uppercase bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
+            <p className="font-bold text-xl uppercase bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 text-center">
                 All Clients Entries Record</p>
         <div className="flex flex-col ">
            <DataTable columns={columns} data={allList}/>

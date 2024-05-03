@@ -1,6 +1,6 @@
 'use client'
 import {useEffect, useState} from "react";
-import {DataTable} from "@/app/admin/ysys/viewbalance/data-table";
+import {DataTable} from "@/components/data-table";
 import {columns} from "@/app/admin/ysys/viewbalance/columns";
 
 export default function ViewBalance(){
