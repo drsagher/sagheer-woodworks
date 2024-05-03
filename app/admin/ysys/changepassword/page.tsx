@@ -42,9 +42,9 @@ const eventHandler = (e:React.ChangeEvent<any>) => {
       setId(e.target.value);
 }
 return(
-    <form className="flex flex-col gap-2 mx-auto max-w-md mt-10 py-4" onSubmit={handleSubmit}>
-        <label className="text-center font-bold bg-amber-200 rounded-md p-2 text-amber-800">Change Password</label>
-        <select className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"
+    <form className="flex flex-col gap-2 w-full p-4" onSubmit={handleSubmit}>
+        <label className="p-2 text-red-600 font-bold uppercase">Change Password</label>
+        <select className="h-10 rounded-md  text-red-600 pl-2 border border-red-800"
                 onClick={eventHandler}>
             {
                 users ?
@@ -53,11 +53,11 @@ return(
                     ) : null
             }
         </select>
-        <input className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"
+        <input className="h-10 rounded-md  text-red-600 pl-2 border border-red-800"
                name="password" type="text" placeholder="Enter new password here"/>
         <div className="flex gap-2">
-            <button type="submit" className="bg-amber-300 hover:bg-amber-400 p-2 w-24 rounded-3xl">Save</button>
-            <Link href="/admin" className="bg-amber-400 hover:bg-amber-500 p-2 w-16 rounded-3xl">Back</Link>
+            <button type="submit" className="text-white bg-red-800 hover:bg-red-600 p-1 w-24 rounded-2xl">Save</button>
+            <Link href="/admin" className="text-center text-white bg-red-800 hover:bg-red-600 p-1 w-24 rounded-2xl">Back</Link>
         </div>
     </form>
 )

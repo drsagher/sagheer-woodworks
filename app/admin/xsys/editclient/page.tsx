@@ -86,10 +86,10 @@ export default function Form() {
         setId(e.target.value);
     }
     return (
-        <form onSubmit={handleSubmit} className="flex flex-col gap-2 mx-auto max-w-md py-4" >
-            <label className="text-center font-bold bg-amber-200 rounded-md p-2 text-amber-800">Update Client
+        <form onSubmit={handleSubmit} className="flex flex-col gap-2 mx-auto w-full p-4" >
+            <label className="p-2 text-red-600 font-bold uppercase">Update Client
             </label>
-            <select onClick={eventHandler} className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400">
+            <select onClick={eventHandler} className="h-10 rounded-md  text-red-600 pl-2 border border-red-800">
                 {
                     clientList ?
                         clientList.map((client) => {
@@ -98,17 +98,17 @@ export default function Form() {
                 }
             </select>
 
-            <input className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"
+            <input className="h-10 rounded-md  text-red-600 pl-2 border border-red-800"
                    name="name" type="text" placeholder="Client full name"
                    value={cname} onClick={nameClickHandler} onChange={(e) => setCname(e.target.value)}/>
-            <input className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"
+            <input className="h-10 rounded-md text-red-600 pl-2 border border-red-800"
                    name="shop" type="text" placeholder="Client Shop name"
                    value={cshop} onClick={shopClickHandler} onChange={(e) => setCshop(e.target.value)}/>
-            <input className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"
+            <input className="h-10 rounded-md text-red-600 pl-2 border border-red-800"
                    name="mobile" type="text" placeholder="Client mobile with country code"
                    value={cmobile} onClick={mobileClickHandler} onChange={(e) => setCmobile(e.target.value)}/>
             <div className="flex gap-2">
-                <button type="submit" className="bg-amber-300 hover:bg-amber-400 p-2 w-24 rounded-3xl">Save</button>
+                <button type="submit" className="text-white bg-red-800 hover:bg-red-600 p-1 w-24 rounded-2xl">Save</button>
             </div>
         </form>
     )

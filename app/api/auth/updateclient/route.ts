@@ -7,11 +7,6 @@ export async function PUT(request: Request) {
     const shop = searchParams.get('shop');
     const mobile =  searchParams.get('mobile');
     try {
-        // const id=29;
-        // const name = "DR. ABS Sagher";
-        // const shop ="MST Tech LLC";
-        // const mobile = "+923336951098";
-        // const {id, name, shop, mobile} = request.json();
       await sql`update clients set name=${name}, shop=${shop}, mobile=${mobile} where id=${id}`;
       return NextResponse.json({message: `Successfully updated ${id}`}, {status: 200});
     }catch (error) {

@@ -35,23 +35,23 @@ export default function XRegister(){
     };
 
     return(
-        <form onSubmit={handleSubmit} className="flex flex-col gap-2 mx-auto max-w-md py-4">
-            <label className="text-center font-bold bg-amber-200 rounded-md p-2 text-amber-800">X Client
+        <form onSubmit={handleSubmit} className="flex flex-col gap-2 mx-auto w-full p-4">
+            <label className="p-2 text-red-600 font-bold uppercase">Ledger Client
                 Registration</label>
-            <input className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"
+            <input className="h-10 rounded-md text-red-600 pl-2 border border-red-800"
                    name="name" type="text" placeholder="Client full name" required={true}/>
-            <input className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"
+            <input className="h-10 rounded-md text-red-600 pl-2 border border-red-800 "
                    name="shop" type="text" placeholder="Client Shop name" required={true}/>
-            <input className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"
+            <input className="h-10 rounded-md text-red-600 pl-2 border border-red-800 "
                    name="mobile" type="text" placeholder="Client mobile with country code" required={true}/>
             <select name="status"
-                    className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400">
+                    className="h-10 rounded-md text-red-600 pl-2 border border-red-800 ">
                 <option key="active" value="active">Active</option>
                 <option key="froze" value="froze">Froze</option>
             </select>
             <div className="flex gap-2">
-                <button type="submit" className="bg-amber-300 hover:bg-amber-400 p-2 w-24 rounded-3xl">Register</button>
-                <Link href="/admin/xsys" className="bg-amber-400 hover:bg-amber-500 p-2 w-16 rounded-3xl">Back</Link>
+                <button type="submit" className="text-white bg-red-800 hover:bg-red-600 p-1 w-24 rounded-2xl">Register</button>
+                <Link href="/admin/xsys" className="text-center text-white bg-red-800 hover:bg-red-600 p-1 w-24 rounded-2xl">Back</Link>
                 {<span className="font-bold text-amber-700"> {message}</span>}
             </div>
         </form>

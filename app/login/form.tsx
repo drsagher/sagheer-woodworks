@@ -22,24 +22,24 @@ export default function LoginForm(){
         }
     };
     return(
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4 mx-auto max-w-md mt-2 mb-2 p-6">
-            <label className="p-2 text-slate-900 font-bold uppercase">Login</label>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4 mx-auto max-w-md mt-2 mb-2 p-6 bg-slate-50 rounded-2xl">
+            <label className="text-center p-2 text-red-600 font-bold uppercase">Login</label>
 
             <input
-                className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800"
+                className="h-10 rounded-md text-red-600 pl-2 border border-red-800"
                 name="email" type="email" placeholder="Enter email"/>
 
             <input
-                className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800"
+                className="h-10 rounded-md text-red-600 pl-2 border border-red-800"
                 name="password" type="password" placeholder="Password"/>
 
             <select name="usertype"
-                    className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800">
+                    className="h-10 rounded-md text-red-600 pl-2 border border-red-800">
                 <option value="DEO" selected>DEO</option>
                 <option value="Admin">Admin</option>
             </select>
 
-            <button type="submit" className="text-slate-500 bg-slate-900 hover:bg-slate-800 p-1 w-24 rounded-md uppercase">Login</button>
+            <button type="submit" className="text-white bg-red-800 hover:bg-red-600 p-1 w-24 rounded-2xl">Login</button>
         </form>
     )
 }

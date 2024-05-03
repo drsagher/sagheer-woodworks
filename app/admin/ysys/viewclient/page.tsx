@@ -2,6 +2,8 @@
 import {useEffect, useState} from "react";
 import React from "react";
 import { revalidatePath } from 'next/cache'
+import {DataTable} from "@/app/admin/ysys/viewclient/data-table";
+import {columns} from "@/app/admin/ysys/viewclient/columns";
 
 export default  function Page(){
     const [listData, setListData] = useState([]);
@@ -25,36 +27,13 @@ export default  function Page(){
 
     // @ts-ignore
     // @ts-ignore
-    return(
-    <div className="flex flex-col items-center justify-center bg-gray-100  py-4 ">
-
-        <table className="table-auto bg-slate-100 overflow-auto w-full">
-            <caption className="p-2 text-slate-500 font-bold uppercase">
-                All Wood Clients - (Active={ totalClients&& totalClients.map(c=>c["regclients"])})
-            </caption>
-            <thead className="bg-slate-200 text-md">
-            <tr>
-                <th className="p-2 text-slate-500 font-bold uppercase">ID</th>
-                <th className="p-2 text-slate-500 font-bold uppercase">NAME</th>
-                <th className="p-2 text-slate-500 font-bold uppercase">SHOP</th>
-                <th className="p-2 text-slate-500 font-bold uppercase">MOBILE</th>
-                <th className="p-2 text-slate-500 font-bold uppercase">STATUS</th>
-            </tr>
-            </thead>
-            <tbody>
-            {
-                listData && listData.map(({id, mobile, name, shop, status}) => (
-                    <tr key={id} className="hover:bg-slate-300 text-md even:bg-slate-200">
-                        <td className="p-2 text-slate-500">{id}</td>
-                        <td className="p-2 text-slate-500">{name} </td>
-                        <td className="p-2 text-slate-500">{shop}</td>
-                        <td className="p-2 text-slate-500">{mobile}</td>
-                        <td className="p-2 text-slate-500">{status}</td>
-                    </tr>
-                ))
-            }
-            </tbody>
-        </table>
-    </div>
+    return (
+        <div className="flex flex-col items-center">
+            <p className="font-bold text-xl uppercase bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 mb-4">
+                List of Clients</p>
+        <div className="flex flex-col overflow-auto">
+            <DataTable columns={columns} data={listData}/>
+        </div>
+        </div>
     )
 }
