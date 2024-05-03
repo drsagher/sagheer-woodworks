@@ -6,7 +6,7 @@ import {
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
-} from "@/components/ui/accordion"
+} from "@/app/components/ui/accordion"
 import { GrUserAdmin } from "react-icons/gr";
 import { FaUserEdit } from "react-icons/fa";
 import { FaUserPlus } from "react-icons/fa6";

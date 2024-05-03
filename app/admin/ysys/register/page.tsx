@@ -2,7 +2,7 @@
 import {FormEvent, useState} from "react";
 import {useRouter} from "next/navigation";
 import Link from "next/link";
-export default async function RegisterPage() {
+export default function RegisterPage() {
     const [message, setMessage] = useState("");
 
     const handleSubmit = async (e:FormEvent<HTMLFormElement>) => {

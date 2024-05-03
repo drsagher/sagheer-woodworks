@@ -4,7 +4,7 @@ import {
     DropdownMenuCheckboxItem,
     DropdownMenuContent,
     DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/app/components/ui/dropdown-menu"
 import {
     ColumnDef,
     flexRender,
@@ -17,7 +17,7 @@ import {
     getPaginationRowModel,
     VisibilityState,
 } from "@tanstack/react-table"
-import { Input } from "@/components/ui/input"
+import { Input } from "@/app/components/ui/input"
 
 import {
     Table,
@@ -26,8 +26,8 @@ import {
     TableHead,
     TableHeader,
     TableRow,
-} from "@/components/ui/table"
-import { Button } from "@/components/ui/button"
+} from "@/app/components/ui/table"
+import { Button } from "@/app/components/ui/button"
 import {useState} from "react";
 
 interface DataTableProps<TData, TValue> {

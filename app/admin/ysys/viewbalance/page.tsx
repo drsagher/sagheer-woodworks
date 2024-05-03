@@ -1,7 +1,7 @@
 'use client'
 import {useEffect, useState} from "react";
-import {DataTable} from "@/components/data-table";
-import {columns} from "@/app/admin/ysys/viewbalance/columns";
+import {DataTable} from "@/app/components/data-table";
+import { columns } from './columns';
 
 export default function ViewBalance(){
     const [listData, setListData] = useState([]);

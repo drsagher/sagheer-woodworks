@@ -1,8 +1,8 @@
 'use client'
 import {useCallback, useEffect, useState} from "react";
 import React from "react";
-import { Entries, columns } from './columns';
-import {DataTable} from "@/components/data-table";
+import { columns } from './columns';
+import {DataTable} from "@/app/components/data-table";
 
 export default function Page(){
     const [allList, setAllList] = useState([]);
