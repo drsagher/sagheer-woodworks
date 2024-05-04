@@ -3,6 +3,7 @@ import React, {FormEvent, useCallback} from "react";
 import { useEffect, useState } from 'react'
 import {useRouter} from "next/navigation";
 import {getSession} from "next-auth/react";
+import { LuClipboardEdit } from "react-icons/lu";
 
 export default function Form(){
 
@@ -100,15 +101,15 @@ export default function Form(){
 
     return(
         // <div>
-            <form onSubmit={handleSubmit} className="flex flex-col gap-2 mx-auto max-w-md py-4 w-full">
-                <label className="p-2 text-slate-500 font-bold uppercase">Wood Record</label>
-                <div className="flex gap-2 border-2 border-slate-500 p-2">
+            <form onSubmit={handleSubmit} className="flex flex-col min-h-screen gap-4 mx-auto max-w-md py-4 w-full">
+                <label className="flex items-center gap-2 p-2 text-red-600 font-bold uppercase"><LuClipboardEdit size={35}/>Wood Client Entry</label>
+                <div className="flex gap-2 border-2 border-slate-100 p-2">
                     <div className="flex flex-col gap-2 justify-center w-1/3">
-                        <label className="p-2 text-slate-500 font-bold uppercase">Client ID :</label>
-                        <label className="p-2 text-slate-500 font-bold uppercase">Client Name:</label>
+                        <label className="p-2 text-red-600 font-bold uppercase">Client ID :</label>
+                        <label className="p-2 text-red-600 font-bold uppercase">Client Name:</label>
                     </div>
                     <div className="flex flex-col gap-2  w-2/3">
-                        <select className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800"
+                        <select className="h-10 rounded-md  text-red-600 pl-2 border border-red-800"
                                 name="clientid" onClick={eventHandler}>
                             {
                                 listData ?
@@ -118,7 +119,7 @@ export default function Form(){
                                     }) : null
                             }
                         </select>
-                        <select className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800"
+                        <select className="h-10 rounded-md  text-red-600 pl-2 border border-red-800"
                                 name="client" onClick={eventHandlerId}>
                             {
                                 listData ?
@@ -132,32 +133,32 @@ export default function Form(){
                 </div>
 
                 <input
-                    className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800"
+                    className="h-10 rounded-md  text-red-600 pl-2 border border-red-800 w-full"
                     name="date" type="date" placeholder="dd-mm-yyyy" required={true}/>
                 <input
-                    className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800"
+                    className="h-10 rounded-md  text-red-600 pl-2 border border-red-800 w-full"
                     name="desription" type="text" placeholder="desrciption" required={true}/>
                 <input onChange={(e) => setMuns(e.target.value)}
-                       className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800"
+                       className="h-10 rounded-md  text-red-600 pl-2 border border-red-800 w-full"
                        name="muns" type="text" placeholder="Muns ..." required={true}/>
                 <input onChange={(e) => setKg(e.target.value)}
-                       className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800"
+                       className="h-10 rounded-md  text-red-600 pl-2 border border-red-800 w-full"
                        name="kg" type="text" placeholder="Kilograms ..." required={true}/>
                 <input onChange={(e) => setPrice(e.target.value)}
-                       className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800"
+                       className="h-10 rounded-md  text-red-600 pl-2 border border-red-800 w-full"
                        name="price" type="text" placeholder="Price/Mun ..." required={true}/>
                 <input onClick={() => {
                     const b = calcBill(parseInt(muns), parseInt(kg), parseInt(price));
                     setTotal(b.toString())
                 }}
-                       className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800"
+                       className="h-10 rounded-md  text-red-600 pl-2 border border-red-800 w-full"
                        name="bill" type="text" placeholder="Total Bill" value={total} required={true}/>
                 <input
-                    className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800"
+                    className="h-10 rounded-md  text-red-600 pl-2 border border-red-800 w-full"
                     name="amount" type="text" placeholder="Cash Received" required={true}/>
 
-                <div className="flex gap-2">
-                    <button type="submit" className="text-slate-500 bg-slate-900 hover:bg-slate-800 p-1 w-24 rounded-md uppercase">Save</button>
+                <div className="flex gap-2 w-full">
+                    <button type="submit" className="text-white bg-red-800 hover:bg-red-600 p-1 w-24 rounded-2xl">Save</button>
                 </div>
             </form>
         // </div>

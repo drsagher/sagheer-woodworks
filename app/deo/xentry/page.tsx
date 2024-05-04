@@ -2,6 +2,7 @@
 import React, {FormEvent, useEffect, useState} from "react";
 import {getSession} from "next-auth/react";
 import {useRouter} from "next/navigation";
+import { LuClipboardEdit } from "react-icons/lu";
 
 export default function XEntry(){
     const [listData, setListData] = useState([])
@@ -67,10 +68,11 @@ export default function XEntry(){
 
     return(
         // <div>
-            <form className="flex flex-col gap-4 mx-auto max-w-md py-4 w-full" onSubmit={handleSubmit}>
-                <label className="p-2 text-slate-500 font-bold uppercase">Ledger Entry</label>
+            <form className="flex flex-col min-h-screen gap-4 mx-auto max-w-md py-4 w-full" onSubmit={handleSubmit}>
+                <label className="flex items-center gap-2 p-2 text-red-600 font-bold uppercase"><LuClipboardEdit size={35}/>
+                    Ledger Client Entry</label>
 
-                <select className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800"
+                <select className="h-10 rounded-md  text-red-600 pl-2 border border-red-800 w-full"
                         name="clientid">
                     {
                         listData ?
@@ -80,7 +82,7 @@ export default function XEntry(){
                             }) : null
                     }
                 </select>
-                <select className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800"
+                <select className="h-10 rounded-md  text-red-600 pl-2 border border-red-800 w-full"
                         name="client">
                     {
                         listData ?
@@ -92,23 +94,23 @@ export default function XEntry(){
                 </select>
 
                 <input
-                    className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800"
+                    className="h-10 rounded-md  text-red-600 pl-2 border border-red-800 w-full"
                     name="description" type="text" placeholder="Desrciption" required={true}/>
 
                 <input
-                    className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800"
+                    className="h-10 rounded-md  text-red-600 pl-2 border border-red-800 w-full"
                     name="bill" type="text" placeholder="Bill amount" required={true}/>
 
                 <input
-                    className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800"
+                    className="h-10 rounded-md  text-red-600 pl-2 border border-red-800 w-full"
                     name="payment" type="text" placeholder="Payment" required={true}/>
 
                 <input
-                    className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800"
+                    className="h-10 rounded-md  text-red-600 pl-2 border border-red-800 w-full"
                     name="date" type="date" placeholder="dd-mm-yyyy" required={true}/>
 
-                <div className="flex gap-2">
-                    <button type="submit" className="text-slate-500 bg-slate-900 hover:bg-slate-800 p-1 w-24 rounded-md uppercase">Save</button>
+                <div className="flex gap-2 w-full">
+                    <button type="submit" className="text-white bg-red-800 hover:bg-red-600 p-1 w-24 rounded-2xl">Save</button>
                 </div>
 
             </form>

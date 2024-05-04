@@ -59,8 +59,6 @@ export function DataTable<TData, TValue>({
         onColumnFiltersChange: setColumnFilters,
         getFilteredRowModel: getFilteredRowModel(),
         onColumnVisibilityChange: setColumnVisibility,
-
-
     })
 
     return (
@@ -157,6 +155,14 @@ export function DataTable<TData, TValue>({
                 <Button
                     variant="outline"
                     size="sm"
+                    onClick={() => table.firstPage()}
+
+                >
+                    First
+                </Button>
+                <Button
+                    variant="outline"
+                    size="sm"
                     onClick={() => table.previousPage()}
                     disabled={!table.getCanPreviousPage()}
                 >
@@ -169,6 +175,14 @@ export function DataTable<TData, TValue>({
                     disabled={!table.getCanNextPage()}
                 >
                     Next
+                </Button>
+                <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => table.lastPage()}
+
+                >
+                    Last
                 </Button>
             </div>
         </>
