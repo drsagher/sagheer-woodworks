@@ -34,7 +34,7 @@ export default function Clientregisteration() {
     };
     return(
         <form onSubmit={handleSubmit} className="flex flex-col gap-2 mx-auto w-full p-4">
-            <label className="p-2 text-slate-500 font-bold uppercase">Client Registration
+            <label className="p-2 text-red-600 font-bold uppercase">Wood Client Registration
             </label>
             <input className="h-10 rounded-md  text-red-600 pl-2 border border-red-800"
                    name="name" type="text" placeholder="Client full name"/>

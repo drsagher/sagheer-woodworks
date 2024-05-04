@@ -1,5 +1,7 @@
 'use client'
 import React, {useEffect, useState} from "react";
+import {DataTable} from "@/app/components/data-table";
+import {columns} from "@/app/admin/ysys/viewbalance/columns";
 
 export default function ViewBalance(){
     const [listData, setListData] = useState([]);
@@ -20,37 +22,15 @@ export default function ViewBalance(){
                 setBalanceX(balanceX)
             })
     }, []);
+    // ({balanceX && balanceX.map(c => c["balance"])})
+    return (
 
-    return(
-
-            <table className="table-auto text-md text-left ">
-                <caption className="text-lg font-bold text-green-900 uppercase p-4">
-                    Ledger Balance Sheet ({balanceX && balanceX.map(c => c["balance"])})
-                </caption>
-                <thead className="bg-indigo-950 text-amber-200">
-                <tr>
-                    <th className="">ID</th>
-                    <th className="">NAME</th>
-                    <th className="">PENDING</th>
-                    <th className="">RECEIVED</th>
-                    <th className="">BALANCE</th>
-                </tr>
-                </thead>
-                <tbody>
-                {
-                    listData && listData.map(({clientid, client, name, bill, amount, balance}) => (
-                        <tr key={clientid}
-                            className="odd:bg-black odd:text-white uppercase">
-                            <td className="">{clientid}</td>
-                            <td className="">{client} </td>
-                            <td className="">{bill}</td>
-                            <td className="">{amount}</td>
-                            <td className="">{balance}</td>
-                        </tr>
-                    ))
-                }
-                </tbody>
-            </table>
-
+        <div className="flex flex-col items-center">
+            <p className="font-bold text-xl uppercase bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 mb-4">
+                Ledger Client Balance Sheet -Balance: ({balanceX && balanceX.map(c => c["balance"])})</p>
+            <div className="flex flex-col overflow-auto">
+                <DataTable columns={columns} data={listData}/>
+            </div>
+        </div>
     )
 }

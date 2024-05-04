@@ -52,10 +52,10 @@ export default function StatusClient(){
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-2 mx-auto w-full p-4">
 
-            <label className="p-2 text-slate-500 font-bold uppercase">Change Status
+            <label className="p-2 text-red-600 font-bold uppercase">Change Ledger Client Status
             </label>
             <select onClick={eventHandler}
-                    className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800">
+                    className="h-10 rounded-md  text-red-600 pl-2 border border-red-800">
                 {
                     clientList ?
                         clientList.map((client) => {
@@ -66,14 +66,14 @@ export default function StatusClient(){
             </select>
 
             <select onClick={statusEventHandler}
-                    className="h-10 rounded-md bg-slate-900 text-slate-500 pl-2 border border-slate-800 active:border-slate-800">
+                    className="h-10 rounded-md  text-red-600 pl-2 border border-red-800">
                 <option key="active" value="active">Active</option>
                 <option key="froze" value="froze">Froze</option>
             </select>
 
             <div className="flex gap-2">
-                <button type="submit" className="text-slate-500 bg-slate-900 hover:bg-slate-800 p-1 w-24 rounded-md uppercase">Save</button>
-                <Link href="/admin" className="text-slate-500 bg-slate-900 hover:bg-slate-800 p-1 w-24 rounded-md uppercase">Back</Link>
+                <button type="submit" className="text-white bg-red-800 hover:bg-red-600 p-1 w-24 rounded-2xl">Save</button>
+                <Link href="/admin" className="text-center text-white bg-red-800 hover:bg-red-600 p-1 w-24 rounded-2xl">Back</Link>
             </div>
 
         </form>

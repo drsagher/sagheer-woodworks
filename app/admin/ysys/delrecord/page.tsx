@@ -47,19 +47,18 @@ export default function DelRecord(){
     }
 
     return(
-        <div className="flex flex-col gap-6 items-center justify-center p-10">
-            <p className="text-xl font-bold text-red-700 bg-amber-300 px-10"><IoMdWarning size={35}/>DELETE RECORD</p>
+        <div className="flex flex-col gap-6 items-center w-full">
+            <div className="flex text-red-600 font-bold uppercase"><IoMdWarning size={35}/>DELETE WOOD RECORD</div>
 
-            <div className="flex items-center justify-center gap-4 border-2 p-2">
+            <div className="flex items-center gap-2 p-2 w-full justify-center border-2">
                 <label className="font-bold text-red-700">Delete Entry</label>
-                {entryId}
                 <input onChange={entryIDHandler}
                        className="border-2 border-rose-600 h-10 rounded-md pl-2 active:border-amber-400"
                        type="text" placeholder="Type entry id here ..."/>
                 <button className="text-red-700" onClick={()=>delEntry(delEntryUrl)}><MdDeleteForever size={40}/></button>
             </div>
 
-            <div className="flex items-center justify-center gap-4 border-2 p-2">
+            <div className="flex items-center gap-2 p-2 w-full justify-center border-2">
                 <label className="font-bold text-red-700">Delete Client</label>
                 {/*{clientId}*/}
                 <input onChange={clientIDHandler}
@@ -68,7 +67,7 @@ export default function DelRecord(){
                 <button className="text-red-800" onClick={()=>delClient(delClientUrl)}><MdDeleteForever size={40}/></button>
             </div>
 
-            <div className="flex items-center justify-center gap-4 border-2 p-2">
+            <div className="flex items-center gap-2 p-2 w-full justify-center border-2">
                 <label className="font-bold text-red-700">Delete User</label>
                 {/*{userId}*/}
                 <input onChange={userIDHandler}

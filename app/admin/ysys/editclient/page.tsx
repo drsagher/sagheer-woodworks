@@ -83,7 +83,7 @@ export default function Form() {
     }
     return (
         <form onSubmit={handleSubmit} className="flex flex-col gap-2 w-full p-4">
-            <label className="p-2 text-slate-500 font-bold uppercase">Update Client
+            <label className="p-2 text-red-600 font-bold uppercase">Wood Client Update
             </label>
             <select onClick={eventHandler} className="h-10 rounded-md  text-red-600 pl-2 border border-red-800">
                 {
