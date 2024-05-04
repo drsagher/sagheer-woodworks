@@ -18,7 +18,7 @@ export default function RegisterPage() {
         })
         console.log(response);
         if(response.ok){
-            setMessage("Client Registered Successfully!");
+            setMessage("User Registered Successfully!");
         }else{  setMessage("Server Error!");}
     };
     return(
