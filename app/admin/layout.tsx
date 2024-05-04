@@ -17,8 +17,38 @@ import { MdOutlineDeleteForever } from "react-icons/md";
 import { TbUserQuestion } from "react-icons/tb";
 import { TbDatabaseDollar } from "react-icons/tb";
 import { LiaUserEditSolid } from "react-icons/lia";
+import { usePathname } from 'next/navigation';
+import {link} from "node:fs";
 
 export default function AdminLayout({ children }: { children: ReactNode }) {
+    const NavLinks =[
+        {id:1, name:"Home", path:"/admin", icon:<TiHomeOutline />},
+        {id:2, name:"Register", path:"/admin/ysys/register", icon:<FaUserPlus />},
+        {id:3, name:"Password", path:"/admin/ysys/changepassword", icon:<GrUserAdmin />},
+    ]
+
+    const NavLinksX =[
+        {id:1, name:"Balance", path:"/admin/xsys/viewbalance", icon:<LiaBalanceScaleSolid />},
+        {id:2, name:"Clientage", path:"/admin/xsys/viewclient", icon:<MdOutlinePersonSearch />},
+        {id:3, name:"Entries", path:"/admin/xsys/viewdata", icon:<TbDatabaseDollar />},
+        {id:4, name:"Client", path:"/admin/xsys/editclient", icon:<LiaUserEditSolid />},
+        {id:5, name:"Register", path:"/admin/xsys/xregister", icon:<IoPersonAddOutline />},
+        {id:6, name:"Remove", path:"/admin/xsys/delrecord", icon:<MdOutlineDeleteForever />},
+        {id:7, name:"Status", path:"/admin/xsys/statusclient", icon:<TbUserQuestion />},
+    ]
+
+    const NavLinksY =[
+        {id:1, name:"Balance", path:"/admin/ysys/viewbalance", icon:<LiaBalanceScaleSolid />},
+        {id:2, name:"Clientage", path:"/admin/ysys/viewclient", icon:<MdOutlinePersonSearch />},
+        {id:3, name:"Entries", path:"/admin/ysys/viewdata", icon:<TbDatabaseDollar />},
+        {id:4, name:"Client", path:"/admin/ysys/editclient", icon:<LiaUserEditSolid />},
+        {id:5, name:"Register", path:"/admin/ysys/xregister", icon:<IoPersonAddOutline />},
+        {id:6, name:"Remove", path:"/admin/ysys/delrecord", icon:<MdOutlineDeleteForever />},
+        {id:7, name:"Status", path:"/admin/ysys/statusclient", icon:<TbUserQuestion />},
+    ]
+
+    const pathname = usePathname();
+    const isActive = (path: string) => path === pathname;
     return(
         <div className="flex">
             <div className="flex flex-col w-2/12 p-4 text-lg bg-indigo-900">
@@ -27,79 +57,49 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
                         <AccordionTrigger className="flex text-white">
                             Admin</AccordionTrigger>
                         <AccordionContent>
-                            <nav className="flex flex-col text-white">
-                                <Link className="flex items-center gap-1 hover:underline hover:text-amber-200"
-                                      href="/admin"><TiHomeOutline />
+                            {/*New Links*/}
 
-                                    Home</Link>
-                                <Link className="flex items-center gap-1 hover:underline hover:text-amber-200"
-                                      href="/admin/ysys/register"><FaUserPlus />
-                                    Register
-                                    User</Link>
-                                <Link className="flex items-center gap-1 hover:underline hover:text-amber-200"
-                                      href="/admin/ysys/changepassword"><GrUserAdmin />Change Password</Link>
-                            </nav>
+                            {NavLinks.map((link) => {
+                                return (
+                                        <Link key={link.id}
+                                            href={link.path}
+                                            className={`${isActive(link.path) ? 'text-amber-200 font-bold' : 'text-white'} flex items-center gap-1 hover:underline hover:text-amber-200`}
+                                        >
+                                            {link.icon} {link.name}
+                                        </Link>
+                                );
+                            })}
                         </AccordionContent>
                     </AccordionItem>
 
                     <AccordionItem value="item-2">
                         <AccordionTrigger className="text-white">Ledger</AccordionTrigger>
                         <AccordionContent>
-                            <nav className="flex flex-col text-white">
-                                {/*<Link className="hover:underline hover:text-amber-200"*/}
-                                {/*      href="/admin/xsys">Home X</Link>*/}
-                                <Link className="hover:underline hover:text-amber-200 flex items-center gap-1"
-                                      href="/admin/xsys/viewbalance"><LiaBalanceScaleSolid />
-                                    Balance</Link>
-                                <Link className="hover:underline hover:text-amber-200 flex items-center gap-1"
-                                      href="/admin/xsys/viewclient"><MdOutlinePersonSearch />
-                                    Clientage</Link>
-                                <Link className="hover:underline hover:text-amber-200 flex items-center gap-1"
-                                      href="/admin/xsys/viewdata"><TbDatabaseDollar />
-                                    Entries</Link>
-                                <Link className="hover:underline hover:text-amber-200 flex items-center gap-1"
-                                      href="/admin/xsys/editclient"><LiaUserEditSolid />
-                                    Client</Link>
-
-                                <Link className="hover:underline hover:text-amber-200 flex items-center gap-1"
-                                      href="/admin/xsys/xregister"><IoPersonAddOutline />
-                                    Register</Link>
-
-
-                                <Link className="hover:underline hover:text-amber-200 flex items-center gap-1"
-                                      href="/admin/xsys/delrecord"><MdOutlineDeleteForever />
-                                    Remove</Link>
-
-                                <Link className="hover:underline hover:text-amber-200 flex items-center gap-1"
-                                      href="/admin/xsys/statusclient"><TbUserQuestion />
-                                    Status</Link>
-
-                            </nav>
+                            {NavLinksX.map((link) => {
+                                return (
+                                    <Link key={link.id}
+                                          href={link.path}
+                                          className={`${isActive(link.path) ? 'text-amber-200 font-bold' : 'text-white'} flex items-center gap-1 hover:underline hover:text-amber-200`}
+                                    >
+                                        {link.icon} {link.name}
+                                    </Link>
+                                );
+                            })}
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-3">
                         <AccordionTrigger className="text-white">Wood</AccordionTrigger>
                         <AccordionContent>
-                            <nav
-                                 className="flex flex-col text-white ">
-                                {/*<Link className="hover:underline hover:text-amber-200"*/}
-                                {/*      href="/admin/ysys">Home Y</Link>*/}
-                                <Link className="hover:underline hover:text-amber-200 flex items-center gap-1"
-                                      href="/admin/ysys/viewbalance"><LiaBalanceScaleSolid />Balance</Link>
-                                <Link className="hover:underline hover:text-amber-200 flex items-center gap-1"
-                                      href="/admin/ysys/viewclient"><MdOutlinePersonSearch />Clientage</Link>
-                                <Link className="hover:underline hover:text-amber-200 flex items-center gap-1"
-                                      href="/admin/ysys/viewdata"><TbDatabaseDollar />Entries</Link>
-                                <Link className="hover:underline hover:text-amber-200 flex items-center gap-1"
-                                      href="/admin/ysys/editclient"><LiaUserEditSolid />
-                                    Client</Link>
-                                <Link className="hover:underline hover:text-amber-200 flex items-center gap-1"
-                                      href="/admin/ysys/clientregisteration"><IoPersonAddOutline />Register</Link>
-                                <Link className="hover:underline hover:text-amber-200 flex items-center gap-1"
-                                      href="/admin/ysys/delrecord"><MdOutlineDeleteForever />Remove</Link>
-                                <Link className="hover:underline hover:text-amber-200 flex items-center gap-1"
-                                      href="/admin/ysys/statusclient"><TbUserQuestion />Status</Link>
-                            </nav>
+                            {NavLinksY.map((link) => {
+                                return (
+                                    <Link key={link.id}
+                                          href={link.path}
+                                          className={`${isActive(link.path) ? 'text-amber-200 font-bold' : 'text-white'} flex items-center gap-1 hover:underline hover:text-amber-200`}
+                                    >
+                                        {link.icon} {link.name}
+                                    </Link>
+                                );
+                            })}
                         </AccordionContent>
                     </AccordionItem>
                 </Accordion>
