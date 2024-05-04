@@ -41,7 +41,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
         {id:2, name:"Clientage", path:"/admin/ysys/viewclient", icon:<MdOutlinePersonSearch />},
         {id:3, name:"Entries", path:"/admin/ysys/viewdata", icon:<TbDatabaseDollar />},
         {id:4, name:"Client", path:"/admin/ysys/editclient", icon:<LiaUserEditSolid />},
-        {id:5, name:"Register", path:"/admin/ysys/register", icon:<IoPersonAddOutline />},
+        {id:5, name:"Register", path:"/admin/ysys/clientregisteration", icon:<IoPersonAddOutline />},
         {id:6, name:"Remove", path:"/admin/ysys/delrecord", icon:<MdOutlineDeleteForever />},
         {id:7, name:"Status", path:"/admin/ysys/statusclient", icon:<TbUserQuestion />},
     ]
