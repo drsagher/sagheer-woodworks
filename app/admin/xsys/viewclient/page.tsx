@@ -30,6 +30,7 @@ export default  function Page(){
                 List of Clients - Active Ledger Client ({ totalClients&& totalClients?.map(c=>c["regclients"])})</p>
             <div className="flex flex-col overflow-auto">
                 <DataTable columns={columns} data={listData}/>
+                
             </div>
         </div>
     )
