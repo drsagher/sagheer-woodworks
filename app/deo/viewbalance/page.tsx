@@ -24,7 +24,7 @@ export default function ViewBalance(){
     return (
         <div className="flex flex-col overflow-auto min-h-screen">
             <p className="font-bold text-xl uppercase mt-4 text-center text-red-700">
-                Wood Client Balance Sheet - Balance:({balanceX && balanceX.map(c => c["balance"])})</p>
+                Wood Client Balance Sheet - Balance:({balanceX && balanceX?.map(c => c["balance"])})</p>
                 <DataTable columns={columns} data={listData}/>
         </div>
     )

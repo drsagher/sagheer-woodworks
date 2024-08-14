@@ -27,7 +27,7 @@ export default function ViewBalance(){
 
         <div className="flex flex-col items-center">
             <p className="font-bold text-xl uppercase bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 mb-4">
-                Ledger Client Balance Sheet -Balance: ({balanceX && balanceX.map(c => c["balance"])})</p>
+                Ledger Client Balance Sheet -Balance: ({balanceX && balanceX?.map(c => c["balance"])})</p>
             <div className="flex flex-col overflow-auto">
                 <DataTable columns={columns} data={listData}/>
             </div>

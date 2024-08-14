@@ -106,7 +106,7 @@ export default function Page(){
     return (
         <div className="flex flex-col overflow-auto">
             <p className="font-bold text-xl uppercase bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 text-center">
-                All Ledger Clients Entries - Total Entries:({totalEntries && totalEntries.map(c => c["totalentries"])})</p>
+                All Ledger Clients Entries - Total Entries:({totalEntries && totalEntries?.map(c => c["totalentries"])})</p>
             <div className="flex flex-col ">
                 <DataTable columns={columns} data={allList}/>
             </div>
