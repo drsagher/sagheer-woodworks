@@ -5,21 +5,21 @@ export default function ChangePassword() {
     const [users, setUsers] = useState([]);
     const [id, setId] = useState(0);
 
-    // let userList:string = '/api/auth/getusers';
-    //
-    // const fetchUsersListData = useCallback(async (userList:string) => {
-    //     try {
-    //         const response = await fetch(userList);
-    //         const data = await response.json();
-    //         // console.log(data);
-    //         setUsers(data);
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }, [setUsers]);
-    // useEffect(() => {
-    //     fetchUsersListData(userList);
-    // }, [fetchUsersListData, userList]);
+    let userList:string = '/api/auth/getusers';
+
+    const fetchUsersListData = useCallback(async (userList:string) => {
+        try {
+            const response = await fetch(userList);
+            const data = await response.json();
+            // console.log(data);
+            setUsers(data);
+        } catch (error) {
+            console.log(error);
+        }
+    }, [setUsers]);
+    useEffect(() => {
+        fetchUsersListData(userList);
+    }, [fetchUsersListData, userList]);
     useEffect(() => {
         fetch('/api/auth/getusers',{next:{revalidate:1}, method: 'PUT'})
             .then((res) => res.json())
