@@ -85,7 +85,7 @@ export default function Form(){
         })
             if(response.ok){
             alert('Entry Saved Successfully');
-
+                console.log(response)
             router.push('/deo');
             router.refresh();
             }else{  setInfo("Server Error!");

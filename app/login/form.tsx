@@ -1,8 +1,7 @@
 'use client'
-import {FormEvent, useState} from "react";
+import {FormEvent} from "react";
 import {signIn} from "next-auth/react";
 import {useRouter} from "next/navigation";
-import querystring from 'querystring';
 
 export default function LoginForm(){
     const router = useRouter();
@@ -12,8 +11,8 @@ export default function LoginForm(){
         const response = await signIn('credentials',{email:formData.get('email'),password:formData.get('password'),usertype:formData.get('usertype'), redirect:false});
         console.log(response);
         if(!response?.error){
-            if(formData.get('usertype') ==="Admin"){
-                router.push("/admin");
+            if(formData.get('usertype') === 'Admin'){
+                router.push('/admin');
                 router.refresh();
             }else{
                 router.push('/deo');
@@ -35,7 +34,7 @@ export default function LoginForm(){
 
             <select name="usertype"
                     className="h-10 rounded-md text-red-600 pl-2 border border-red-800">
-                <option value="DEO" selected>DEO</option>
+                <option value="DEO" selected={true}>DEO</option>
                 <option value="Admin">Admin</option>
             </select>
 
